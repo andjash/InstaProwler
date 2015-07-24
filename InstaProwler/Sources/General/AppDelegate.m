@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "SearchViewController.h"
+#import "Objection.h"
+#import "ServicesObjectionModule.h"
 
 @interface AppDelegate ()
 
@@ -31,6 +33,13 @@
     SearchViewController *searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
     self.window.rootViewController = searchVC;
     [self.window makeKeyAndVisible];
+}
+
+- (void)setupObjection {
+    NSArray *modules = @[[ServicesObjectionModule new]];
+    JSObjectionInjector *container = [JSObjection createInjectorWithModulesArray:modules];
+    [JSObjection setDefaultInjector:container];
+    [[JSObjection defaultInjector] injectDependencies:self];
 }
 
 @end
