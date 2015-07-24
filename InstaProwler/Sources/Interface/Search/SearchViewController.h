@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SearchViewController.h
 //  InstaProwler
 //
 //  Created by Andrey Yashnev on 24/07/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SearchViewController : UIViewController
 
 @end
-

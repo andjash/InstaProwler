@@ -7,50 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC55BBD91B62734E00BE7186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BBD81B62734E00BE7186 /* main.m */; };
-		CC55BBDC1B62734E00BE7186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BBDB1B62734E00BE7186 /* AppDelegate.m */; };
-		CC55BBDF1B62734E00BE7186 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BBDE1B62734E00BE7186 /* ViewController.m */; };
-		CC55BBE21B62734E00BE7186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC55BBE01B62734E00BE7186 /* Main.storyboard */; };
-		CC55BBE41B62734E00BE7186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC55BBE31B62734E00BE7186 /* Images.xcassets */; };
 		CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */; };
-		CC55BBF31B62734E00BE7186 /* InstaProwlerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BBF21B62734E00BE7186 /* InstaProwlerTests.m */; };
+		CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC041B62754F00BE7186 /* AppDelegate.m */; };
+		CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC081B62759A00BE7186 /* Images.xcassets */; };
+		CC55BC0E1B6275C200BE7186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC0C1B6275C200BE7186 /* main.m */; };
+		CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC111B62773200BE7186 /* SearchViewController.m */; };
+		CC55BC141B62773200BE7186 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC121B62773200BE7186 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		CC55BBED1B62734E00BE7186 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CC55BBCB1B62734E00BE7186 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CC55BBD21B62734E00BE7186;
-			remoteInfo = InstaProwler;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CC55BBD31B62734E00BE7186 /* InstaProwler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaProwler.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC55BBD71B62734E00BE7186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC55BBD81B62734E00BE7186 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CC55BBDA1B62734E00BE7186 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CC55BBDB1B62734E00BE7186 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CC55BBDD1B62734E00BE7186 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CC55BBDE1B62734E00BE7186 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CC55BBE11B62734E00BE7186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CC55BBE31B62734E00BE7186 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC55BBE61B62734E00BE7186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CC55BBEC1B62734E00BE7186 /* InstaProwlerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstaProwlerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC55BBF11B62734E00BE7186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC55BBF21B62734E00BE7186 /* InstaProwlerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaProwlerTests.m; sourceTree = "<group>"; };
+		CC55BC031B62754F00BE7186 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CC55BC041B62754F00BE7186 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CC55BC081B62759A00BE7186 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CC55BC0B1B6275C200BE7186 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC55BC0C1B6275C200BE7186 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CC55BC101B62773200BE7186 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		CC55BC111B62773200BE7186 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		CC55BC121B62773200BE7186 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CC55BBD01B62734E00BE7186 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC55BBE91B62734E00BE7186 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				CC55BBD51B62734E00BE7186 /* InstaProwler */,
-				CC55BBEF1B62734E00BE7186 /* InstaProwlerTests */,
 				CC55BBD41B62734E00BE7186 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				CC55BBD31B62734E00BE7186 /* InstaProwler.app */,
-				CC55BBEC1B62734E00BE7186 /* InstaProwlerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,42 +58,97 @@
 		CC55BBD51B62734E00BE7186 /* InstaProwler */ = {
 			isa = PBXGroup;
 			children = (
-				CC55BBDA1B62734E00BE7186 /* AppDelegate.h */,
-				CC55BBDB1B62734E00BE7186 /* AppDelegate.m */,
-				CC55BBDD1B62734E00BE7186 /* ViewController.h */,
-				CC55BBDE1B62734E00BE7186 /* ViewController.m */,
-				CC55BBE01B62734E00BE7186 /* Main.storyboard */,
-				CC55BBE31B62734E00BE7186 /* Images.xcassets */,
-				CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */,
-				CC55BBD61B62734E00BE7186 /* Supporting Files */,
+				CC55BC021B62751C00BE7186 /* Resources */,
+				CC55BBFD1B62750B00BE7186 /* Sources */,
+				CC55BC0A1B6275C200BE7186 /* Supporting Files */,
 			);
 			path = InstaProwler;
 			sourceTree = "<group>";
 		};
-		CC55BBD61B62734E00BE7186 /* Supporting Files */ = {
+		CC55BBFD1B62750B00BE7186 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CC55BBD71B62734E00BE7186 /* Info.plist */,
-				CC55BBD81B62734E00BE7186 /* main.m */,
+				CC55BBFE1B62750B00BE7186 /* General */,
+				CC55BBFF1B62750B00BE7186 /* Interface */,
+				CC55BC001B62750B00BE7186 /* Services */,
 			);
-			name = "Supporting Files";
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		CC55BBEF1B62734E00BE7186 /* InstaProwlerTests */ = {
+		CC55BBFE1B62750B00BE7186 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				CC55BBF21B62734E00BE7186 /* InstaProwlerTests.m */,
-				CC55BBF01B62734E00BE7186 /* Supporting Files */,
+				CC55BC031B62754F00BE7186 /* AppDelegate.h */,
+				CC55BC041B62754F00BE7186 /* AppDelegate.m */,
 			);
-			path = InstaProwlerTests;
+			path = General;
 			sourceTree = "<group>";
 		};
-		CC55BBF01B62734E00BE7186 /* Supporting Files */ = {
+		CC55BBFF1B62750B00BE7186 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				CC55BBF11B62734E00BE7186 /* Info.plist */,
+				CC55BC0F1B62771600BE7186 /* Search */,
 			);
-			name = "Supporting Files";
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		CC55BC001B62750B00BE7186 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC011B62750B00BE7186 /* Infrastructure */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CC55BC011B62750B00BE7186 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		CC55BC021B62751C00BE7186 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC071B62759A00BE7186 /* Assets */,
+				CC55BC061B62757500BE7186 /* Interface */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CC55BC061B62757500BE7186 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		CC55BC071B62759A00BE7186 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC081B62759A00BE7186 /* Images.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		CC55BC0A1B6275C200BE7186 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC0B1B6275C200BE7186 /* Info.plist */,
+				CC55BC0C1B6275C200BE7186 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC55BC0F1B62771600BE7186 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC101B62773200BE7186 /* SearchViewController.h */,
+				CC55BC111B62773200BE7186 /* SearchViewController.m */,
+				CC55BC121B62773200BE7186 /* SearchViewController.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,24 +171,6 @@
 			productReference = CC55BBD31B62734E00BE7186 /* InstaProwler.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CC55BBEB1B62734E00BE7186 /* InstaProwlerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CC55BBF91B62734E00BE7186 /* Build configuration list for PBXNativeTarget "InstaProwlerTests" */;
-			buildPhases = (
-				CC55BBE81B62734E00BE7186 /* Sources */,
-				CC55BBE91B62734E00BE7186 /* Frameworks */,
-				CC55BBEA1B62734E00BE7186 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CC55BBEE1B62734E00BE7186 /* PBXTargetDependency */,
-			);
-			name = InstaProwlerTests;
-			productName = InstaProwlerTests;
-			productReference = CC55BBEC1B62734E00BE7186 /* InstaProwlerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -168,10 +182,6 @@
 				TargetAttributes = {
 					CC55BBD21B62734E00BE7186 = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					CC55BBEB1B62734E00BE7186 = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = CC55BBD21B62734E00BE7186;
 					};
 				};
 			};
@@ -189,7 +199,6 @@
 			projectRoot = "";
 			targets = (
 				CC55BBD21B62734E00BE7186 /* InstaProwler */,
-				CC55BBEB1B62734E00BE7186 /* InstaProwlerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -199,16 +208,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC55BBE21B62734E00BE7186 /* Main.storyboard in Resources */,
 				CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */,
-				CC55BBE41B62734E00BE7186 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC55BBEA1B62734E00BE7186 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */,
+				CC55BC141B62773200BE7186 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,45 +221,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC55BBDF1B62734E00BE7186 /* ViewController.m in Sources */,
-				CC55BBDC1B62734E00BE7186 /* AppDelegate.m in Sources */,
-				CC55BBD91B62734E00BE7186 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC55BBE81B62734E00BE7186 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CC55BBF31B62734E00BE7186 /* InstaProwlerTests.m in Sources */,
+				CC55BC0E1B6275C200BE7186 /* main.m in Sources */,
+				CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */,
+				CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		CC55BBEE1B62734E00BE7186 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CC55BBD21B62734E00BE7186 /* InstaProwler */;
-			targetProxy = CC55BBED1B62734E00BE7186 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		CC55BBE01B62734E00BE7186 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CC55BBE11B62734E00BE7186 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CC55BBE61B62734E00BE7186 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -299,6 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -336,6 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -347,7 +328,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = InstaProwler/Info.plist;
+				INFOPLIST_FILE = "InstaProwler/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,43 +338,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = InstaProwler/Info.plist;
+				INFOPLIST_FILE = "InstaProwler/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		CC55BBFA1B62734E00BE7186 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InstaProwlerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaProwler.app/InstaProwler";
-			};
-			name = Debug;
-		};
-		CC55BBFB1B62734E00BE7186 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = InstaProwlerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/InstaProwler.app/InstaProwler";
 			};
 			name = Release;
 		};
@@ -416,14 +363,7 @@
 				CC55BBF81B62734E00BE7186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		CC55BBF91B62734E00BE7186 /* Build configuration list for PBXNativeTarget "InstaProwlerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CC55BBFA1B62734E00BE7186 /* Debug */,
-				CC55BBFB1B62734E00BE7186 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
