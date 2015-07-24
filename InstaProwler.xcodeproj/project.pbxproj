@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19EFBD8F145F036C4DCADB55 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B434DE757B10B781F73484 /* libPods.a */; };
 		CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */; };
 		CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC041B62754F00BE7186 /* AppDelegate.m */; };
 		CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC081B62759A00BE7186 /* Images.xcassets */; };
 		CC55BC0E1B6275C200BE7186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC0C1B6275C200BE7186 /* main.m */; };
 		CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC111B62773200BE7186 /* SearchViewController.m */; };
 		CC55BC141B62773200BE7186 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC121B62773200BE7186 /* SearchViewController.xib */; };
+		CC55BC201B627C0A00BE7186 /* HttpServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC181B627C0A00BE7186 /* HttpServiceImpl.m */; };
+		CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC1B1B627C0A00BE7186 /* NotificationHandler.m */; };
+		CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC1F1B627C0A00BE7186 /* QueueServiceImpl.m */; };
+		CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		419FFF3CB4A045994EBF5D99 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		41B434DE757B10B781F73484 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA19EC0AB082CCFCA7D7A536 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CC55BBD31B62734E00BE7186 /* InstaProwler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaProwler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC55BBE61B62734E00BE7186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CC55BC031B62754F00BE7186 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +34,16 @@
 		CC55BC101B62773200BE7186 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		CC55BC111B62773200BE7186 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		CC55BC121B62773200BE7186 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		CC55BC161B627C0A00BE7186 /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpService.h; sourceTree = "<group>"; };
+		CC55BC171B627C0A00BE7186 /* HttpServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServiceImpl.h; sourceTree = "<group>"; };
+		CC55BC181B627C0A00BE7186 /* HttpServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServiceImpl.m; sourceTree = "<group>"; };
+		CC55BC1A1B627C0A00BE7186 /* NotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationHandler.h; sourceTree = "<group>"; };
+		CC55BC1B1B627C0A00BE7186 /* NotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationHandler.m; sourceTree = "<group>"; };
+		CC55BC1D1B627C0A00BE7186 /* QueueService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueService.h; sourceTree = "<group>"; };
+		CC55BC1E1B627C0A00BE7186 /* QueueServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueServiceImpl.h; sourceTree = "<group>"; };
+		CC55BC1F1B627C0A00BE7186 /* QueueServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueServiceImpl.m; sourceTree = "<group>"; };
+		CC8E1C9A1B627E6D00F1F1F3 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
+		CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +51,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19EFBD8F145F036C4DCADB55 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		999CFA6CF94B92477952A993 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41B434DE757B10B781F73484 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC55BBCA1B62734E00BE7186 = {
 			isa = PBXGroup;
 			children = (
 				CC55BBD51B62734E00BE7186 /* InstaProwler */,
 				CC55BBD41B62734E00BE7186 /* Products */,
+				CD61A8C08950774727A0DA99 /* Pods */,
+				999CFA6CF94B92477952A993 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +97,7 @@
 		CC55BBFD1B62750B00BE7186 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				CC8E1C991B627E5800F1F1F3 /* Categories */,
 				CC55BBFE1B62750B00BE7186 /* General */,
 				CC55BBFF1B62750B00BE7186 /* Interface */,
 				CC55BC001B62750B00BE7186 /* Services */,
@@ -103,6 +133,9 @@
 		CC55BC011B62750B00BE7186 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				CC55BC151B627C0A00BE7186 /* HttpService */,
+				CC55BC191B627C0A00BE7186 /* NotificationService */,
+				CC55BC1C1B627C0A00BE7186 /* QueueService */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -151,6 +184,53 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		CC55BC151B627C0A00BE7186 /* HttpService */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC161B627C0A00BE7186 /* HttpService.h */,
+				CC55BC171B627C0A00BE7186 /* HttpServiceImpl.h */,
+				CC55BC181B627C0A00BE7186 /* HttpServiceImpl.m */,
+			);
+			path = HttpService;
+			sourceTree = "<group>";
+		};
+		CC55BC191B627C0A00BE7186 /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC1A1B627C0A00BE7186 /* NotificationHandler.h */,
+				CC55BC1B1B627C0A00BE7186 /* NotificationHandler.m */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
+		CC55BC1C1B627C0A00BE7186 /* QueueService */ = {
+			isa = PBXGroup;
+			children = (
+				CC55BC1D1B627C0A00BE7186 /* QueueService.h */,
+				CC55BC1E1B627C0A00BE7186 /* QueueServiceImpl.h */,
+				CC55BC1F1B627C0A00BE7186 /* QueueServiceImpl.m */,
+			);
+			path = QueueService;
+			sourceTree = "<group>";
+		};
+		CC8E1C991B627E5800F1F1F3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CC8E1C9A1B627E6D00F1F1F3 /* UIApplication+Additions.h */,
+				CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		CD61A8C08950774727A0DA99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				419FFF3CB4A045994EBF5D99 /* Pods.debug.xcconfig */,
+				BA19EC0AB082CCFCA7D7A536 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +238,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC55BBF61B62734E00BE7186 /* Build configuration list for PBXNativeTarget "InstaProwler" */;
 			buildPhases = (
+				F0BF45556B286F1C2F677798 /* Check Pods Manifest.lock */,
 				CC55BBCF1B62734E00BE7186 /* Sources */,
 				CC55BBD01B62734E00BE7186 /* Frameworks */,
 				CC55BBD11B62734E00BE7186 /* Resources */,
+				440F2BCF828108201F3AD25D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,14 +298,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		440F2BCF828108201F3AD25D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0BF45556B286F1C2F677798 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC55BBCF1B62734E00BE7186 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CC55BC0E1B6275C200BE7186 /* main.m in Sources */,
+				CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */,
 				CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */,
+				CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */,
+				CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */,
 				CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */,
+				CC55BC201B627C0A00BE7186 /* HttpServiceImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +445,7 @@
 		};
 		CC55BBF71B62734E00BE7186 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 419FFF3CB4A045994EBF5D99 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "InstaProwler/Supporting Files/Info.plist";
@@ -336,6 +456,7 @@
 		};
 		CC55BBF81B62734E00BE7186 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA19EC0AB082CCFCA7D7A536 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "InstaProwler/Supporting Files/Info.plist";
