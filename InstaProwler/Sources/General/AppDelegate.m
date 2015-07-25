@@ -10,6 +10,7 @@
 #import "SearchViewController.h"
 #import "Objection.h"
 #import "ServicesObjectionModule.h"
+#import "ModelsObjectionModule.h"
 
 @interface AppDelegate ()
 
@@ -37,7 +38,7 @@
 }
 
 - (void)setupObjection {
-    NSArray *modules = @[[ServicesObjectionModule new]];
+    NSArray *modules = @[[ServicesObjectionModule new], [ModelsObjectionModule new]];
     JSObjectionInjector *container = [JSObjection createInjectorWithModulesArray:modules];
     [JSObjection setDefaultInjector:container];
     [[JSObjection defaultInjector] injectDependencies:self];

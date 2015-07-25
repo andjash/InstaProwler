@@ -16,8 +16,8 @@
 
 - (void)recentMediaForUserWithId:(NSString *)userId
                            count:(NSNumber *)count
-                           minId:(NSNumber *)minId
-                    successBlock:(void(^)(NSArray *))successBlock // array of InstagramMediaItem
+                           maxId:(NSString *)maxId
+                    successBlock:(void(^)(NSArray *items/*InstagramMediaItem*/, NSString *nextMaxId))successBlock
                       errorBlock:(void(^)(NSError *error))errorBlock;
 
 @end

@@ -76,8 +76,8 @@ objection_requires(@"httpService", @"queueService")
 
 - (void)recentMediaForUserWithId:(NSString *)userId
                            count:(NSNumber *)count
-                           minId:(NSNumber *)minId
-                    successBlock:(void(^)(NSArray *))successBlock
+                           maxId:(NSString *)maxId
+                    successBlock:(void(^)(NSArray *items/*InstagramMediaItem*/, NSString *nextMaxId))successBlock
                       errorBlock:(void(^)(NSError *error))errorBlock {
     RequestParameters *rp = [RequestParameters new];
     
@@ -88,8 +88,8 @@ objection_requires(@"httpService", @"queueService")
         [urlString appendFormat:@"&count=%@", count];
     }
     
-    if (minId) {
-        [urlString appendFormat:@"&min_id=%@", minId];
+    if (maxId) {
+        [urlString appendFormat:@"&max_id=%@", maxId];
     }
     
     rp.url = [NSURL URLWithString:urlString];
@@ -111,6 +111,9 @@ objection_requires(@"httpService", @"queueService")
             }
             
             NSArray *itemsDicts = responseDict[@"data"];
+            NSDictionary *paginationDict = responseDict[@"pagination"];
+            NSString *nextMaxId = paginationDict[@"next_max_id"];
+            
             NSMutableArray *result = [NSMutableArray arrayWithCapacity:[itemsDicts count]];
             
             for (NSDictionary *dict in itemsDicts) {
@@ -120,8 +123,10 @@ objection_requires(@"httpService", @"queueService")
                 }
             }
             
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                successBlock(result);
+                successBlock(result, nextMaxId);
             });
         }];
     }];
