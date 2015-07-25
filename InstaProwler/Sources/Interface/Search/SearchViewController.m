@@ -7,31 +7,36 @@
 //
 
 #import "SearchViewController.h"
+#import "Objection.h"
+#import "InstagramService.h"
 
 @interface SearchViewController ()
+
+@property (nonatomic, strong) id<InstagramService> instaService;
+
+@property (nonatomic, weak) IBOutlet UITextField *searchField;
 
 @end
 
 @implementation SearchViewController
+objection_register(SearchViewController)
+objection_requires(@"instaService")
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[JSObjection defaultInjector] injectDependencies:self];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Actions
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)searchAction:(id)sender {
+    [self.instaService searchForUserWithString:self.searchField.text successBlock:^(NSArray *users) {
+        NSLog(@"%@", users);
+    } errorBlock:^(NSError *error) {
+        
+    }];
 }
-*/
 
 @end

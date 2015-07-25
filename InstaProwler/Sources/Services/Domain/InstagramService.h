@@ -10,4 +10,8 @@
 
 @protocol InstagramService <NSObject>
 
+- (void)searchForUserWithString:(NSString *)searchString
+                   successBlock:(void(^)(NSArray *))successBlock // array of InstagramUser
+                     errorBlock:(void(^)(NSError *error))errorBlock;
+
 @end

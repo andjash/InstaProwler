@@ -20,6 +20,7 @@
 #pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self setupObjection];
     [self setupViewControllers];
     return YES;
 }

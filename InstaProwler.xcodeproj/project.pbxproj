@@ -20,6 +20,7 @@
 		CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */; };
 		CC8E1C9F1B627F4400F1F1F3 /* ServicesObjectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9E1B627F4400F1F1F3 /* ServicesObjectionModule.m */; };
 		CC8E1CA41B62800500F1F1F3 /* InstagramServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CA31B62800500F1F1F3 /* InstagramServiceImpl.m */; };
+		CC8E1CA71B63CCEC00F1F1F3 /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CA61B63CCEC00F1F1F3 /* InstagramUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		CC8E1CA11B627FF000F1F1F3 /* InstagramService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramService.h; sourceTree = "<group>"; };
 		CC8E1CA21B62800500F1F1F3 /* InstagramServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramServiceImpl.h; sourceTree = "<group>"; };
 		CC8E1CA31B62800500F1F1F3 /* InstagramServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramServiceImpl.m; sourceTree = "<group>"; };
+		CC8E1CA51B63CCEC00F1F1F3 /* InstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramUser.h; sourceTree = "<group>"; };
+		CC8E1CA61B63CCEC00F1F1F3 /* InstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +241,8 @@
 				CC8E1CA11B627FF000F1F1F3 /* InstagramService.h */,
 				CC8E1CA21B62800500F1F1F3 /* InstagramServiceImpl.h */,
 				CC8E1CA31B62800500F1F1F3 /* InstagramServiceImpl.m */,
+				CC8E1CA51B63CCEC00F1F1F3 /* InstagramUser.h */,
+				CC8E1CA61B63CCEC00F1F1F3 /* InstagramUser.m */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				CC55BC0E1B6275C200BE7186 /* main.m in Sources */,
 				CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */,
 				CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */,
+				CC8E1CA71B63CCEC00F1F1F3 /* InstagramUser.m in Sources */,
 				CC8E1C9F1B627F4400F1F1F3 /* ServicesObjectionModule.m in Sources */,
 				CC8E1CA41B62800500F1F1F3 /* InstagramServiceImpl.m in Sources */,
 				CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */,

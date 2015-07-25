@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
             <connections>
+                <outlet property="searchField" destination="1J0-vC-CiF" id="0dq-sr-j2H"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,11 +20,22 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Mp-h6-ZIK">
+                    <rect key="frame" x="276" y="335" width="48" height="30"/>
+                    <state key="normal" title="Search">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="hGX-sC-03y"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="1J0-vC-CiF" secondAttribute="centerX" id="2PF-oP-PRL"/>
+                <constraint firstItem="2Mp-h6-ZIK" firstAttribute="top" secondItem="1J0-vC-CiF" secondAttribute="bottom" constant="20" id="Dfm-Yi-RSP"/>
                 <constraint firstAttribute="centerY" secondItem="1J0-vC-CiF" secondAttribute="centerY" id="hTr-Bf-yYY"/>
+                <constraint firstAttribute="centerX" secondItem="2Mp-h6-ZIK" secondAttribute="centerX" id="xzO-4Z-65i"/>
             </constraints>
         </view>
     </objects>
