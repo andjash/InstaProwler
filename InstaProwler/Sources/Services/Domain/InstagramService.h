@@ -14,4 +14,10 @@
                    successBlock:(void(^)(NSArray *))successBlock // array of InstagramUser
                      errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)recentMediaForUserWithId:(NSString *)userId
+                           count:(NSNumber *)count
+                           minId:(NSNumber *)minId
+                    successBlock:(void(^)(NSArray *))successBlock // array of InstagramMediaItem
+                      errorBlock:(void(^)(NSError *error))errorBlock;
+
 @end

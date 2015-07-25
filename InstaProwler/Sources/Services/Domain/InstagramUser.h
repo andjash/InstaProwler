@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *userId;
 
++ (instancetype)fromDictionary:(NSDictionary *)dict;
+
 @end
