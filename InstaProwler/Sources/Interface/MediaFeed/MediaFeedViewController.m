@@ -49,7 +49,7 @@ objection_requires(@"mediaItemsModel")
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [wself.mediaItemsModel loadNextPage];
     }];
-    self.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];  
+    self.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];
     
     self.modelLoadingHandler = [NotificationHandler handlerWithBlock:^(NSNotification *notification) {
         if (wself.mediaItemsModel.state != InstagramMediaItemsModelStateProgress) {

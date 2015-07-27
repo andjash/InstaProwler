@@ -9,6 +9,9 @@
 #import "MediaFeedCell.h"
 #import "InstagramMediaItem.h"
 #import "InstagramUser.h"
+#import "ImageDownloadModel.h"
+#import "Objection.h"
+#import "UAProgressView.h"
 
 @interface MediaFeedCell ()
 
@@ -16,6 +19,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *creationDateLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *photoImageView;
 @property (nonatomic, weak) IBOutlet UILabel *commentsLabel;
+@property (nonatomic, weak) IBOutlet UILabel *progressLabel;
+@property (nonatomic, weak) IBOutlet UAProgressView *progressView;
+@property (nonatomic, strong) ImageDownloadProgressTicket *imageTicket;
 
 @end
 
@@ -30,7 +36,7 @@
     [[self attributedStringFromComments:item.comments] boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX)
                                                                     options:(NSStringDrawingUsesLineFragmentOrigin| NSStringDrawingUsesFontLeading)
                                                                     context:nil];
-    return paragraphRect.size.height + 340;
+    return paragraphRect.size.height + [UIScreen mainScreen].bounds.size.width + 23;
 }
 
 + (NSAttributedString *)attributedStringFromComments:(NSArray *)comments {
@@ -56,10 +62,31 @@
     return attrString;
 }
 
+#pragma mark - NSObject
+
+- (void)dealloc {
+    if (self.imageTicket) {
+        [self.imageTicket removeObserver:self forKeyPath:@"progress"];
+    }
+}
+
 #pragma mark - UIView
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.progressView.borderWidth = 0;
+}
 
 - (UIEdgeInsets)layoutMargins {
     return UIEdgeInsetsZero;
+}
+
+#pragma mark - UITableViewCell
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.photoImageView.image = nil;
+    self.photoImageView.alpha = 0;
 }
 
 #pragma mark - Properties
@@ -75,6 +102,54 @@
     self.authorLabel.text = mediaItem.author.username;
     self.creationDateLabel.text = [self.dateFormatter stringFromDate:mediaItem.creationDate];
     self.commentsLabel.attributedText = [[self class] attributedStringFromComments:mediaItem.comments];
+    
+    id<ImageDownloadModel> downloadModel = [[JSObjection defaultInjector] getObject:@protocol(ImageDownloadModel)];
+    
+    ImageDownloadProgressTicket *ticket = [downloadModel ticketForUrl:mediaItem.imageUrlString];
+    if (!ticket) {
+        ticket = [downloadModel downloadImageForUrl:mediaItem.imageUrlString];
+    }
+    if (self.imageTicket) {
+        [self.imageTicket removeObserver:self forKeyPath:@"progress"];
+        self.imageTicket = nil;
+    }
+
+    if (ticket.image) {
+        self.photoImageView.image = ticket.image;
+        self.photoImageView.alpha = 1;
+        [self.progressView setProgress:0 animated:NO];
+    } else {
+        self.imageTicket = ticket;
+        [self.progressView setProgress:self.imageTicket.progress animated:YES];
+        [self.imageTicket addObserver:self forKeyPath:@"progress" options:NSKeyValueObservingOptionNew context:nil];
+    }
+    [self updateProgressLabel];
+}
+
+- (void)updateProgressLabel {
+    if (self.imageTicket.image || !self.imageTicket) {
+        self.progressLabel.text = @"";
+        return;
+    }
+    
+    self.progressLabel.text = [NSString stringWithFormat:@"%@%%", @((int)(self.imageTicket.progress * 100))];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    [self.progressView setProgress:self.imageTicket.progress animated:YES];
+    self.progressView.progress = self.imageTicket.progress;
+    if (self.imageTicket.image) {
+        [self.progressView setProgress:0 animated:NO];
+        self.photoImageView.image = self.imageTicket.image;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.photoImageView.alpha = 1;
+        }];
+        [self.imageTicket removeObserver:self forKeyPath:@"progress"];
+        self.imageTicket = nil;
+    }
+    [self updateProgressLabel];
 }
 
 @end

@@ -31,6 +31,8 @@
 		CC8E1CC61B667EBE00F1F1F3 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CC51B667EBE00F1F1F3 /* UIView+Additions.m */; };
 		CC8E1CC91B66827E00F1F1F3 /* MediaItemCommentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CC81B66827E00F1F1F3 /* MediaItemCommentsView.m */; };
 		CC8E1CCC1B66941500F1F1F3 /* NSError+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CCB1B66941500F1F1F3 /* NSError+Additions.m */; };
+		CC8E1CD11B6698A700F1F1F3 /* ImageDownloadModelImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CD01B6698A700F1F1F3 /* ImageDownloadModelImpl.m */; };
+		CC8E1CD41B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CD31B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,11 @@
 		CC8E1CC81B66827E00F1F1F3 /* MediaItemCommentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaItemCommentsView.m; sourceTree = "<group>"; };
 		CC8E1CCA1B66941500F1F1F3 /* NSError+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Additions.h"; sourceTree = "<group>"; };
 		CC8E1CCB1B66941500F1F1F3 /* NSError+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+Additions.m"; sourceTree = "<group>"; };
+		CC8E1CCE1B66989900F1F1F3 /* ImageDownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadModel.h; sourceTree = "<group>"; };
+		CC8E1CCF1B6698A700F1F1F3 /* ImageDownloadModelImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadModelImpl.h; sourceTree = "<group>"; };
+		CC8E1CD01B6698A700F1F1F3 /* ImageDownloadModelImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadModelImpl.m; sourceTree = "<group>"; };
+		CC8E1CD21B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadProgressTicket.h; sourceTree = "<group>"; };
+		CC8E1CD31B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadProgressTicket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +294,7 @@
 		CC8E1CAB1B63E63300F1F1F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CC8E1CCD1B66988700F1F1F3 /* ImageDownloadModel */,
 				CC8E1CAC1B63E63300F1F1F3 /* InstagramMediaItemsModel */,
 				CC8E1CAD1B63E65700F1F1F3 /* ModelsObjectionModule.h */,
 				CC8E1CAE1B63E65700F1F1F3 /* ModelsObjectionModule.m */,
@@ -317,6 +325,18 @@
 				CC8E1CC81B66827E00F1F1F3 /* MediaItemCommentsView.m */,
 			);
 			path = MediaFeed;
+			sourceTree = "<group>";
+		};
+		CC8E1CCD1B66988700F1F1F3 /* ImageDownloadModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC8E1CCE1B66989900F1F1F3 /* ImageDownloadModel.h */,
+				CC8E1CCF1B6698A700F1F1F3 /* ImageDownloadModelImpl.h */,
+				CC8E1CD01B6698A700F1F1F3 /* ImageDownloadModelImpl.m */,
+				CC8E1CD21B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.h */,
+				CC8E1CD31B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m */,
+			);
+			path = ImageDownloadModel;
 			sourceTree = "<group>";
 		};
 		CD61A8C08950774727A0DA99 /* Pods */ = {
@@ -451,7 +471,9 @@
 				CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */,
 				CC8E1CAF1B63E65700F1F1F3 /* ModelsObjectionModule.m in Sources */,
 				CC8E1CCC1B66941500F1F1F3 /* NSError+Additions.m in Sources */,
+				CC8E1CD41B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m in Sources */,
 				CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */,
+				CC8E1CD11B6698A700F1F1F3 /* ImageDownloadModelImpl.m in Sources */,
 				CC55BC201B627C0A00BE7186 /* HttpServiceImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

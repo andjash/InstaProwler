@@ -8,6 +8,7 @@
 
 #import "ModelsObjectionModule.h"
 #import "InstagramMediaItemsModelImpl.h"
+#import "ImageDownloadModelImpl.h"
 
 @implementation ModelsObjectionModule
 
@@ -15,6 +16,7 @@
 
 - (void)configure {
     [self bindClass:[InstagramMediaItemsModelImpl class] toProtocol:@protocol(InstagramMediaItemsModel)];
+    [self bindClass:[ImageDownloadModelImpl class] toProtocol:@protocol(ImageDownloadModel)];
 }
 
 @end

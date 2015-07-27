@@ -22,12 +22,14 @@ PODS:
     - AFNetworking/NSURLSession
   - Objection (1.6)
   - SVPullToRefresh (0.4.1)
+  - UAProgressView (0.1.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Objection (~> 1.5)
   - SVPullToRefresh (from `https://github.com/samvermette/SVPullToRefresh.git`, commit
     `a5f9dfee86a27c4e994d7edf93d0768c881d58bb`)
+  - UAProgressView
 
 EXTERNAL SOURCES:
   SVPullToRefresh:
@@ -43,5 +45,6 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Objection: 4833664098b86a8418f656bf5d9851a3fa6d7e41
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  UAProgressView: 4ef6d60b4e060884cb0315e7628256f998744247
 
 COCOAPODS: 0.38.0
