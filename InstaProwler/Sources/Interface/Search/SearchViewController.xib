@@ -29,11 +29,22 @@
                         <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="hGX-sC-03y"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nd-8L-HtV">
+                    <rect key="frame" x="284" y="373" width="32" height="30"/>
+                    <state key="normal" title="Next">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="nextAction:" destination="-1" eventType="touchUpInside" id="dzq-wJ-cuI"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="1J0-vC-CiF" secondAttribute="centerX" id="2PF-oP-PRL"/>
                 <constraint firstItem="2Mp-h6-ZIK" firstAttribute="top" secondItem="1J0-vC-CiF" secondAttribute="bottom" constant="20" id="Dfm-Yi-RSP"/>
+                <constraint firstItem="5Nd-8L-HtV" firstAttribute="top" secondItem="2Mp-h6-ZIK" secondAttribute="bottom" constant="8" id="QDL-D6-NLs"/>
+                <constraint firstAttribute="centerX" secondItem="5Nd-8L-HtV" secondAttribute="centerX" id="WBX-lm-cFF"/>
                 <constraint firstAttribute="centerY" secondItem="1J0-vC-CiF" secondAttribute="centerY" id="hTr-Bf-yYY"/>
                 <constraint firstAttribute="centerX" secondItem="2Mp-h6-ZIK" secondAttribute="centerX" id="xzO-4Z-65i"/>
             </constraints>

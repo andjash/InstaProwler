@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "Objection.h"
 #import "InstagramMediaItemsModel.h"
+#import "MediaFeedViewController.h"
 
 @interface SearchViewController ()
 
@@ -34,8 +35,13 @@ objection_requires(@"itemsModel")
 #pragma mark - Actions
 
 - (IBAction)searchAction:(id)sender {
-    [self.itemsModel loadNextPageForsearchString:self.searchField.text];
+    [self.itemsModel loadNextPageForSearchString:self.searchField.text];
+}
+
+- (IBAction)nextAction:(id)sender {
+    MediaFeedViewController *mediaFeedVC = [[MediaFeedViewController alloc] initWithNibName:@"MediaFeedViewController" bundle:nil];
     
+    [self presentViewController:mediaFeedVC animated:YES completion:nil];
 }
 
 @end

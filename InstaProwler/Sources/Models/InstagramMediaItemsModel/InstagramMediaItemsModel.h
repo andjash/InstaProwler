@@ -16,13 +16,17 @@ typedef NS_ENUM(NSUInteger, InstagramMediaItemsModelState) {
 
 extern NSString * const kInstagramMediaItemsModelStateChangedNotification;
 
+extern NSString * const kInstagramMediaItemsModelErrorDomain;
+
 @protocol InstagramMediaItemsModel <NSObject>
 
 @property (nonatomic, assign, readonly) InstagramMediaItemsModelState state;
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 @property (nonatomic, strong, readonly) NSError *lastError;
+@property (nonatomic, assign, readonly) BOOL hasMoreItems;
 
 
-- (void)loadNextPageForsearchString:(NSString *)searchString;
+- (void)loadNextPageForSearchString:(NSString *)searchString;
+- (void)loadNextPage;
 
 @end

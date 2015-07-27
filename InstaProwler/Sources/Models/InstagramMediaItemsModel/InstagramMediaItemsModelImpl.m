@@ -11,17 +11,24 @@
 #import "InstagramService.h"
 #import "InstagramUser.h"
 
+#import "NSError+Additions.h"
+
+NSString * const kInstagramMediaItemsModelStateChangedNotification = @"kInstagramMediaItemsModelStateChangedNotification";
+
+NSString * const kInstagramMediaItemsModelErrorDomain = @"kInstagramMediaItemsModelErrorDomain";
+
 static const NSUInteger kLoadStepSize = 5;
 
 @interface InstagramMediaItemsModelImpl ()
 
 @property (nonatomic, strong) NSString *nextMaxId;
-@property (nonatomic, strong) NSString *currentSearchString;
 @property (nonatomic, strong) InstagramUser *currentUser;
+@property (nonatomic, strong) NSString *currentSearchString;
 
 @property (nonatomic, assign, readwrite) InstagramMediaItemsModelState state;
 @property (nonatomic, strong, readwrite) NSArray *mediaItems;
 @property (nonatomic, strong, readwrite) NSError *lastError;
+@property (nonatomic, assign, readwrite) BOOL hasMoreItems;
 
 @property (nonatomic, weak) id<InstagramService> instagramService;
 
@@ -35,12 +42,13 @@ objection_requires(@"instagramService");
 
 - (void)awakeFromObjection {
     [super awakeFromObjection];
+    self.hasMoreItems = YES;
     self.mediaItems = @[];
 }
 
 #pragma mark - Public
 
-- (void)loadNextPageForsearchString:(NSString *)searchString {
+- (void)loadNextPageForSearchString:(NSString *)searchString {
     if (![self.currentSearchString isEqualToString:searchString]) {
         self.currentSearchString = searchString;
         self.nextMaxId = nil;
@@ -50,18 +58,15 @@ objection_requires(@"instagramService");
     
     self.state = InstagramMediaItemsModelStateProgress;
     
-    
-    if (self.currentUser && !self.nextMaxId && [self.mediaItems count] > 0) {
-        self.lastError = [NSError errorWithDomain:@"" code:0 userInfo:nil];
-        self.state = InstagramMediaItemsModelStateIdle;
-        return;
-    }
-    
     void (^loadRecentMediaBlock)() = ^void() {
         [self.instagramService recentMediaForUserWithId:self.currentUser.userId
                                                   count:@(kLoadStepSize)
                                                   maxId:self.nextMaxId
                                            successBlock:^(NSArray *items, NSString *nextMaxId) {
+                                               if ([nextMaxId length] == 0) {
+                                                   self.hasMoreItems = NO;
+                                               }
+                                               
                                                self.nextMaxId = nextMaxId;
                                                NSMutableArray *newItems = [self.mediaItems mutableCopy];
                                                [newItems addObjectsFromArray:items];
@@ -85,7 +90,9 @@ objection_requires(@"instagramService");
             if (self.currentUser) {
                 loadRecentMediaBlock();
             } else {
-                self.lastError = [NSError errorWithDomain:@"InstagramMediaItemsMode" code:0 userInfo:nil];
+                self.lastError = [NSError errorWithDomain:kInstagramMediaItemsModelErrorDomain
+                                                     code:kInstagramMediaItemsModelNoSuchUser
+                                                 userInfo:nil];
                 self.state = InstagramMediaItemsModelStateIdle;
             }
         } errorBlock:^(NSError *error) {
@@ -95,6 +102,21 @@ objection_requires(@"instagramService");
     } else {
         loadRecentMediaBlock();
     }
+}
+
+- (void)loadNextPage {
+    [self loadNextPageForSearchString:self.currentSearchString];
+}
+
+#pragma mark - Properties
+
+- (void)setState:(InstagramMediaItemsModelState)state {
+    if (_state == state) {
+        return;
+    }
+    
+    _state = state;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelStateChangedNotification object:nil];
 }
 
 @end

@@ -3,3 +3,4 @@ inhibit_all_warnings!
 
 pod "Objection", "~> 1.5"
 pod "AFNetworking", "~> 2.0"
+pod 'SVPullToRefresh', :git => 'https://github.com/samvermette/SVPullToRefresh.git', :commit => 'a5f9dfee86a27c4e994d7edf93d0768c881d58bb'
