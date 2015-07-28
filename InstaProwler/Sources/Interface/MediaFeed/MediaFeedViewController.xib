@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
@@ -70,6 +71,9 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-6w-EIK">
                     <rect key="frame" x="50" y="5" width="220" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="220" id="WyD-NV-az7"/>
+                    </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -87,10 +91,9 @@
             </subviews>
             <color key="backgroundColor" red="0.223888051" green="0.37756873699999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="xAh-6w-EIK" firstAttribute="leading" secondItem="1Ws-MP-e6v" secondAttribute="leading" constant="50" id="9eM-ff-bhg"/>
+                <constraint firstAttribute="centerX" secondItem="xAh-6w-EIK" secondAttribute="centerX" id="8S9-MT-q5Y"/>
                 <constraint firstAttribute="centerY" secondItem="OcC-nA-lnK" secondAttribute="centerY" id="YOk-Vq-hfL"/>
                 <constraint firstAttribute="bottom" secondItem="xAh-6w-EIK" secondAttribute="bottom" constant="5" id="iGl-6P-LZ9"/>
-                <constraint firstAttribute="trailing" secondItem="xAh-6w-EIK" secondAttribute="trailing" constant="50" id="jim-Ri-Tu9"/>
                 <constraint firstItem="OcC-nA-lnK" firstAttribute="leading" secondItem="1Ws-MP-e6v" secondAttribute="leading" constant="12" id="qlm-dL-1cv"/>
                 <constraint firstItem="xAh-6w-EIK" firstAttribute="top" secondItem="1Ws-MP-e6v" secondAttribute="top" constant="5" id="yC9-7M-v2W"/>
             </constraints>
