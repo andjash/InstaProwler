@@ -11,6 +11,8 @@
 #import "HttpService.h"
 #import "InstagramCacheService.h"
 
+static const NSInteger kMaxTicketsCount = 25;
+
 @interface ImageDownloadModelImpl ()
 
 @property (nonatomic, strong) NSMutableDictionary *urlToTicketMapping;
@@ -42,8 +44,10 @@ objection_requires(@"httpService", @"cacheService")
 
 - (ImageDownloadProgressTicket *)downloadImageForUrl:(NSString *)url {
     ImageDownloadProgressTicket *ticket = [ImageDownloadProgressTicket new];
+    ticket.dateCreated = [NSDate date];
     ticket.imageUrl = url;
     self.urlToTicketMapping[url] = ticket;
+    [self removeOldTicketsIfNeeded];
     
     [self.cacheService getImageFromCacheWithUrl:url completionBlock:^(UIImage *image) {
         if (image) {
@@ -81,6 +85,25 @@ objection_requires(@"httpService", @"cacheService")
     }];
     
     return ticket;
+}
+
+#pragma mark - Private
+
+- (void)removeOldTicketsIfNeeded {
+    NSArray *allTickets = [self.urlToTicketMapping allValues];
+    if ([allTickets count] <= kMaxTicketsCount) {
+        return;
+    }
+    
+    NSArray *sortedTickets = [allTickets sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[obj2 dateCreated] compare:[obj1 dateCreated]];
+    }];
+    
+    NSArray *toRemove = [sortedTickets subarrayWithRange:NSMakeRange(kMaxTicketsCount, [sortedTickets count] - kMaxTicketsCount)];
+    
+    for (ImageDownloadProgressTicket *ticket in toRemove) {
+        [self.urlToTicketMapping removeObjectForKey:ticket.imageUrl];
+    }
 }
 
 @end

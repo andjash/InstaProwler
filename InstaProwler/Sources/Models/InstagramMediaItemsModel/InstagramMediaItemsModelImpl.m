@@ -20,7 +20,7 @@ NSString * const kInstagramMediaItemsModelChangedNotification = @"kInstagramMedi
 
 NSString * const kInstagramMediaItemsModelErrorDomain = @"kInstagramMediaItemsModelErrorDomain";
 
-static const NSUInteger kLoadStepSize = 5;
+static const NSUInteger kLoadStepSize = 10;
 
 @interface InstagramMediaItemsModelImpl ()
 

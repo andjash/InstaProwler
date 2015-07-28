@@ -115,6 +115,7 @@ objection_requires(@"mediaItemsModel")
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [self.searchTextField becomeFirstResponder];
 }
 
 #pragma mark - Private

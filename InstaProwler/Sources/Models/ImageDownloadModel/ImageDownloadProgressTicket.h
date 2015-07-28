@@ -13,5 +13,6 @@
 @property (nonatomic, assign) float progress;
 @property (nonatomic, strong) NSString *imageUrl;
 @property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSDate *dateCreated;
 
 @end
