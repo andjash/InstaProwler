@@ -15,11 +15,15 @@
 		CC55BC201B627C0A00BE7186 /* HttpServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC181B627C0A00BE7186 /* HttpServiceImpl.m */; };
 		CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC1B1B627C0A00BE7186 /* NotificationHandler.m */; };
 		CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC1F1B627C0A00BE7186 /* QueueServiceImpl.m */; };
+		CC8CE5B51B674BF9008A8182 /* InstagramServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5AC1B674BF9008A8182 /* InstagramServiceImpl.m */; };
+		CC8CE5B61B674BF9008A8182 /* InstagramCacheServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5B01B674BF9008A8182 /* InstagramCacheServiceImpl.m */; };
+		CC8CE5B71B674BF9008A8182 /* InstagramMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5B21B674BF9008A8182 /* InstagramMediaItem.m */; };
+		CC8CE5B81B674BF9008A8182 /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5B41B674BF9008A8182 /* InstagramUser.m */; };
+		CC8CE5C51B674D64008A8182 /* CoreDataInstagramCacheStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5C41B674D64008A8182 /* CoreDataInstagramCacheStorage.m */; };
+		CC8CE5CE1B674F83008A8182 /* CachedInstagramImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5CD1B674F83008A8182 /* CachedInstagramImage.m */; };
+		CC8CE5D11B67508E008A8182 /* InstagramCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5CF1B67508E008A8182 /* InstagramCache.xcdatamodeld */; };
 		CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */; };
 		CC8E1C9F1B627F4400F1F1F3 /* ServicesObjectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9E1B627F4400F1F1F3 /* ServicesObjectionModule.m */; };
-		CC8E1CA41B62800500F1F1F3 /* InstagramServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CA31B62800500F1F1F3 /* InstagramServiceImpl.m */; };
-		CC8E1CA71B63CCEC00F1F1F3 /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CA61B63CCEC00F1F1F3 /* InstagramUser.m */; };
-		CC8E1CAA1B63D58F00F1F1F3 /* InstagramMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CA91B63D58F00F1F1F3 /* InstagramMediaItem.m */; };
 		CC8E1CAF1B63E65700F1F1F3 /* ModelsObjectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CAE1B63E65700F1F1F3 /* ModelsObjectionModule.m */; };
 		CC8E1CB31B63E6E500F1F1F3 /* InstagramMediaItemsModelImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CB21B63E6E500F1F1F3 /* InstagramMediaItemsModelImpl.m */; };
 		CC8E1CBD1B667B4F00F1F1F3 /* MediaFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CBB1B667B4F00F1F1F3 /* MediaFeedViewController.m */; };
@@ -53,17 +57,26 @@
 		CC55BC1D1B627C0A00BE7186 /* QueueService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueService.h; sourceTree = "<group>"; };
 		CC55BC1E1B627C0A00BE7186 /* QueueServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueServiceImpl.h; sourceTree = "<group>"; };
 		CC55BC1F1B627C0A00BE7186 /* QueueServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueServiceImpl.m; sourceTree = "<group>"; };
+		CC8CE5AA1B674BF9008A8182 /* InstagramService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramService.h; sourceTree = "<group>"; };
+		CC8CE5AB1B674BF9008A8182 /* InstagramServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramServiceImpl.h; sourceTree = "<group>"; };
+		CC8CE5AC1B674BF9008A8182 /* InstagramServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramServiceImpl.m; sourceTree = "<group>"; };
+		CC8CE5AE1B674BF9008A8182 /* InstagramCacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramCacheService.h; sourceTree = "<group>"; };
+		CC8CE5AF1B674BF9008A8182 /* InstagramCacheServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramCacheServiceImpl.h; sourceTree = "<group>"; };
+		CC8CE5B01B674BF9008A8182 /* InstagramCacheServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramCacheServiceImpl.m; sourceTree = "<group>"; };
+		CC8CE5B11B674BF9008A8182 /* InstagramMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaItem.h; sourceTree = "<group>"; };
+		CC8CE5B21B674BF9008A8182 /* InstagramMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaItem.m; sourceTree = "<group>"; };
+		CC8CE5B31B674BF9008A8182 /* InstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramUser.h; sourceTree = "<group>"; };
+		CC8CE5B41B674BF9008A8182 /* InstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramUser.m; sourceTree = "<group>"; };
+		CC8CE5C21B674CFB008A8182 /* InstagramCacheStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramCacheStorage.h; sourceTree = "<group>"; };
+		CC8CE5C31B674D64008A8182 /* CoreDataInstagramCacheStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataInstagramCacheStorage.h; sourceTree = "<group>"; };
+		CC8CE5C41B674D64008A8182 /* CoreDataInstagramCacheStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataInstagramCacheStorage.m; sourceTree = "<group>"; };
+		CC8CE5CC1B674F83008A8182 /* CachedInstagramImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedInstagramImage.h; sourceTree = "<group>"; };
+		CC8CE5CD1B674F83008A8182 /* CachedInstagramImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedInstagramImage.m; sourceTree = "<group>"; };
+		CC8CE5D01B67508E008A8182 /* InstagramCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstagramCache.xcdatamodel; sourceTree = "<group>"; };
 		CC8E1C9A1B627E6D00F1F1F3 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
 		CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Additions.m"; sourceTree = "<group>"; };
 		CC8E1C9D1B627F4400F1F1F3 /* ServicesObjectionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesObjectionModule.h; sourceTree = "<group>"; };
 		CC8E1C9E1B627F4400F1F1F3 /* ServicesObjectionModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesObjectionModule.m; sourceTree = "<group>"; };
-		CC8E1CA11B627FF000F1F1F3 /* InstagramService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramService.h; sourceTree = "<group>"; };
-		CC8E1CA21B62800500F1F1F3 /* InstagramServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramServiceImpl.h; sourceTree = "<group>"; };
-		CC8E1CA31B62800500F1F1F3 /* InstagramServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramServiceImpl.m; sourceTree = "<group>"; };
-		CC8E1CA51B63CCEC00F1F1F3 /* InstagramUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramUser.h; sourceTree = "<group>"; };
-		CC8E1CA61B63CCEC00F1F1F3 /* InstagramUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramUser.m; sourceTree = "<group>"; };
-		CC8E1CA81B63D58F00F1F1F3 /* InstagramMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaItem.h; sourceTree = "<group>"; };
-		CC8E1CA91B63D58F00F1F1F3 /* InstagramMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramMediaItem.m; sourceTree = "<group>"; };
 		CC8E1CAD1B63E65700F1F1F3 /* ModelsObjectionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsObjectionModule.h; sourceTree = "<group>"; };
 		CC8E1CAE1B63E65700F1F1F3 /* ModelsObjectionModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelsObjectionModule.m; sourceTree = "<group>"; };
 		CC8E1CB01B63E6CE00F1F1F3 /* InstagramMediaItemsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramMediaItemsModel.h; sourceTree = "<group>"; };
@@ -251,6 +264,61 @@
 			path = QueueService;
 			sourceTree = "<group>";
 		};
+		CC8CE5A81B674BF8008A8182 /* Instagram */ = {
+			isa = PBXGroup;
+			children = (
+				CC8CE5A91B674BF9008A8182 /* ApiService */,
+				CC8CE5AD1B674BF9008A8182 /* CacheService */,
+				CC8CE5B11B674BF9008A8182 /* InstagramMediaItem.h */,
+				CC8CE5B21B674BF9008A8182 /* InstagramMediaItem.m */,
+				CC8CE5B31B674BF9008A8182 /* InstagramUser.h */,
+				CC8CE5B41B674BF9008A8182 /* InstagramUser.m */,
+			);
+			path = Instagram;
+			sourceTree = "<group>";
+		};
+		CC8CE5A91B674BF9008A8182 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				CC8CE5AA1B674BF9008A8182 /* InstagramService.h */,
+				CC8CE5AB1B674BF9008A8182 /* InstagramServiceImpl.h */,
+				CC8CE5AC1B674BF9008A8182 /* InstagramServiceImpl.m */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
+		CC8CE5AD1B674BF9008A8182 /* CacheService */ = {
+			isa = PBXGroup;
+			children = (
+				CC8CE5AE1B674BF9008A8182 /* InstagramCacheService.h */,
+				CC8CE5AF1B674BF9008A8182 /* InstagramCacheServiceImpl.h */,
+				CC8CE5B01B674BF9008A8182 /* InstagramCacheServiceImpl.m */,
+				CC8CE5B91B674CC5008A8182 /* Storage */,
+			);
+			path = CacheService;
+			sourceTree = "<group>";
+		};
+		CC8CE5B91B674CC5008A8182 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				CC8CE5BA1B674CC5008A8182 /* CoreData */,
+				CC8CE5C21B674CFB008A8182 /* InstagramCacheStorage.h */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		CC8CE5BA1B674CC5008A8182 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CC8CE5C31B674D64008A8182 /* CoreDataInstagramCacheStorage.h */,
+				CC8CE5C41B674D64008A8182 /* CoreDataInstagramCacheStorage.m */,
+				CC8CE5CC1B674F83008A8182 /* CachedInstagramImage.h */,
+				CC8CE5CD1B674F83008A8182 /* CachedInstagramImage.m */,
+				CC8CE5CF1B67508E008A8182 /* InstagramCache.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		CC8E1C991B627E5800F1F1F3 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,13 +337,7 @@
 		CC8E1CA01B627FD100F1F1F3 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CC8E1CA11B627FF000F1F1F3 /* InstagramService.h */,
-				CC8E1CA21B62800500F1F1F3 /* InstagramServiceImpl.h */,
-				CC8E1CA31B62800500F1F1F3 /* InstagramServiceImpl.m */,
-				CC8E1CA51B63CCEC00F1F1F3 /* InstagramUser.h */,
-				CC8E1CA61B63CCEC00F1F1F3 /* InstagramUser.m */,
-				CC8E1CA81B63D58F00F1F1F3 /* InstagramMediaItem.h */,
-				CC8E1CA91B63D58F00F1F1F3 /* InstagramMediaItem.m */,
+				CC8CE5A81B674BF8008A8182 /* Instagram */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -447,18 +509,22 @@
 				CC8E1CC21B667C0800F1F1F3 /* MediaFeedCell.m in Sources */,
 				CC55BC0E1B6275C200BE7186 /* main.m in Sources */,
 				CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */,
-				CC8E1CAA1B63D58F00F1F1F3 /* InstagramMediaItem.m in Sources */,
+				CC8CE5C51B674D64008A8182 /* CoreDataInstagramCacheStorage.m in Sources */,
+				CC8CE5B71B674BF9008A8182 /* InstagramMediaItem.m in Sources */,
+				CC8CE5B51B674BF9008A8182 /* InstagramServiceImpl.m in Sources */,
 				CCE157991B673DCA00C8F703 /* UIColor+Additions.m in Sources */,
+				CC8CE5CE1B674F83008A8182 /* CachedInstagramImage.m in Sources */,
 				CC8E1CB31B63E6E500F1F1F3 /* InstagramMediaItemsModelImpl.m in Sources */,
 				CC8E1CBD1B667B4F00F1F1F3 /* MediaFeedViewController.m in Sources */,
-				CC8E1CA71B63CCEC00F1F1F3 /* InstagramUser.m in Sources */,
+				CC8CE5D11B67508E008A8182 /* InstagramCache.xcdatamodeld in Sources */,
 				CC8E1C9F1B627F4400F1F1F3 /* ServicesObjectionModule.m in Sources */,
 				CC8E1CC91B66827E00F1F1F3 /* MediaItemCommentsView.m in Sources */,
-				CC8E1CA41B62800500F1F1F3 /* InstagramServiceImpl.m in Sources */,
 				CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */,
 				CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */,
 				CC8E1CAF1B63E65700F1F1F3 /* ModelsObjectionModule.m in Sources */,
 				CC8E1CCC1B66941500F1F1F3 /* NSError+Additions.m in Sources */,
+				CC8CE5B81B674BF9008A8182 /* InstagramUser.m in Sources */,
+				CC8CE5B61B674BF9008A8182 /* InstagramCacheServiceImpl.m in Sources */,
 				CC8E1CD41B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m in Sources */,
 				CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */,
 				CC8E1CD11B6698A700F1F1F3 /* ImageDownloadModelImpl.m in Sources */,
@@ -607,6 +673,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CC8CE5CF1B67508E008A8182 /* InstagramCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC8CE5D01B67508E008A8182 /* InstagramCache.xcdatamodel */,
+			);
+			currentVersion = CC8CE5D01B67508E008A8182 /* InstagramCache.xcdatamodel */;
+			path = InstagramCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CC55BBCB1B62734E00BE7186 /* Project object */;
 }
