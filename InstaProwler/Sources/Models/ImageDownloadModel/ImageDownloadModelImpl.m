@@ -90,7 +90,10 @@ objection_requires(@"httpService", @"cacheService")
 #pragma mark - Private
 
 - (void)removeOldTicketsIfNeeded {
-    NSArray *allTickets = [self.urlToTicketMapping allValues];
+    NSArray *allTickets = [[self.urlToTicketMapping allValues] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        ImageDownloadProgressTicket *ticket = evaluatedObject;
+        return ticket.image && ticket.progress == 1;
+    }]];
     if ([allTickets count] <= kMaxTicketsCount) {
         return;
     }
