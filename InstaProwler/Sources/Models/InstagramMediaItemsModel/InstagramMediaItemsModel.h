@@ -15,6 +15,7 @@ typedef NS_ENUM(NSUInteger, InstagramMediaItemsModelState) {
 };
 
 extern NSString * const kInstagramMediaItemsModelStateChangedNotification;
+extern NSString * const kInstagramMediaItemsModelChangedNotification;
 
 extern NSString * const kInstagramMediaItemsModelErrorDomain;
 

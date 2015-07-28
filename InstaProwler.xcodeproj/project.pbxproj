@@ -12,8 +12,6 @@
 		CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC041B62754F00BE7186 /* AppDelegate.m */; };
 		CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC081B62759A00BE7186 /* Images.xcassets */; };
 		CC55BC0E1B6275C200BE7186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC0C1B6275C200BE7186 /* main.m */; };
-		CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC111B62773200BE7186 /* SearchViewController.m */; };
-		CC55BC141B62773200BE7186 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC121B62773200BE7186 /* SearchViewController.xib */; };
 		CC55BC201B627C0A00BE7186 /* HttpServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC181B627C0A00BE7186 /* HttpServiceImpl.m */; };
 		CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC1B1B627C0A00BE7186 /* NotificationHandler.m */; };
 		CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC1F1B627C0A00BE7186 /* QueueServiceImpl.m */; };
@@ -33,6 +31,7 @@
 		CC8E1CCC1B66941500F1F1F3 /* NSError+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CCB1B66941500F1F1F3 /* NSError+Additions.m */; };
 		CC8E1CD11B6698A700F1F1F3 /* ImageDownloadModelImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CD01B6698A700F1F1F3 /* ImageDownloadModelImpl.m */; };
 		CC8E1CD41B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CD31B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m */; };
+		CCE157991B673DCA00C8F703 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE157981B673DCA00C8F703 /* UIColor+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +45,6 @@
 		CC55BC081B62759A00BE7186 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CC55BC0B1B6275C200BE7186 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC55BC0C1B6275C200BE7186 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CC55BC101B62773200BE7186 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		CC55BC111B62773200BE7186 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		CC55BC121B62773200BE7186 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		CC55BC161B627C0A00BE7186 /* HttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpService.h; sourceTree = "<group>"; };
 		CC55BC171B627C0A00BE7186 /* HttpServiceImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpServiceImpl.h; sourceTree = "<group>"; };
 		CC55BC181B627C0A00BE7186 /* HttpServiceImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpServiceImpl.m; sourceTree = "<group>"; };
@@ -90,6 +86,8 @@
 		CC8E1CD01B6698A700F1F1F3 /* ImageDownloadModelImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadModelImpl.m; sourceTree = "<group>"; };
 		CC8E1CD21B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadProgressTicket.h; sourceTree = "<group>"; };
 		CC8E1CD31B66B3BD00F1F1F3 /* ImageDownloadProgressTicket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadProgressTicket.m; sourceTree = "<group>"; };
+		CCE157971B673DCA00C8F703 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
+		CCE157981B673DCA00C8F703 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				CC8E1CB91B667B4200F1F1F3 /* MediaFeed */,
-				CC55BC0F1B62771600BE7186 /* Search */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -225,16 +222,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CC55BC0F1B62771600BE7186 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				CC55BC101B62773200BE7186 /* SearchViewController.h */,
-				CC55BC111B62773200BE7186 /* SearchViewController.m */,
-				CC55BC121B62773200BE7186 /* SearchViewController.xib */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		CC55BC151B627C0A00BE7186 /* HttpService */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +260,8 @@
 				CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */,
 				CC8E1CCA1B66941500F1F1F3 /* NSError+Additions.h */,
 				CC8E1CCB1B66941500F1F1F3 /* NSError+Additions.m */,
+				CCE157971B673DCA00C8F703 /* UIColor+Additions.h */,
+				CCE157981B673DCA00C8F703 /* UIColor+Additions.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -410,7 +399,6 @@
 				CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */,
 				CC8E1CC31B667C0800F1F1F3 /* MediaFeedCell.xib in Resources */,
 				CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */,
-				CC55BC141B62773200BE7186 /* SearchViewController.xib in Resources */,
 				CC8E1CBE1B667B4F00F1F1F3 /* MediaFeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,8 +448,8 @@
 				CC55BC0E1B6275C200BE7186 /* main.m in Sources */,
 				CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */,
 				CC8E1CAA1B63D58F00F1F1F3 /* InstagramMediaItem.m in Sources */,
+				CCE157991B673DCA00C8F703 /* UIColor+Additions.m in Sources */,
 				CC8E1CB31B63E6E500F1F1F3 /* InstagramMediaItemsModelImpl.m in Sources */,
-				CC55BC131B62773200BE7186 /* SearchViewController.m in Sources */,
 				CC8E1CBD1B667B4F00F1F1F3 /* MediaFeedViewController.m in Sources */,
 				CC8E1CA71B63CCEC00F1F1F3 /* InstagramUser.m in Sources */,
 				CC8E1C9F1B627F4400F1F1F3 /* ServicesObjectionModule.m in Sources */,

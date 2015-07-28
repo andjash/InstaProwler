@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "SearchViewController.h"
+#import "MediaFeedViewController.h"
 #import "Objection.h"
 #import "ServicesObjectionModule.h"
 #import "ModelsObjectionModule.h"
@@ -32,8 +32,8 @@
 - (void)setupViewControllers {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    SearchViewController *searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil];
-    self.window.rootViewController = searchVC;
+    MediaFeedViewController *feedVC = [[MediaFeedViewController alloc] initWithNibName:@"MediaFeedViewController" bundle:nil];
+    self.window.rootViewController = feedVC;
     [self.window makeKeyAndVisible];
 }
 

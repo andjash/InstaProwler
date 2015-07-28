@@ -6,6 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaFeedViewController">
             <connections>
+                <outlet property="activityIndicator" destination="u2W-0M-fra" id="c4V-cn-Cc3"/>
+                <outlet property="placeholderLabel" destination="Daf-JQ-cpJ" id="Axo-co-7MP"/>
+                <outlet property="searchTextField" destination="xAh-6w-EIK" id="D5X-Ky-6VC"/>
+                <outlet property="statusBarOverlay" destination="cOo-M2-Egj" id="LpR-co-jPj"/>
+                <outlet property="tableHeaderContainer" destination="1Ws-MP-e6v" id="1TG-V6-ijj"/>
                 <outlet property="tableView" destination="E72-yI-yjn" id="Myq-fB-wlh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,8 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E72-yI-yjn">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOo-M2-Egj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                    <color key="backgroundColor" red="0.223888051" green="0.37756873699999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="MSs-pg-2Un"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E72-yI-yjn">
+                    <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
@@ -24,14 +36,55 @@
                         <outlet property="delegate" destination="-1" id="6Mm-yH-2Ks"/>
                     </connections>
                 </tableView>
+                <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u2W-0M-fra">
+                    <rect key="frame" x="282" y="282" width="37" height="37"/>
+                    <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter username to search and view his feed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Daf-JQ-cpJ">
+                    <rect key="frame" x="50" y="289" width="500" height="22"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="cOo-M2-Egj" secondAttribute="trailing" id="F78-9V-6Ya"/>
                 <constraint firstAttribute="trailing" secondItem="E72-yI-yjn" secondAttribute="trailing" id="JnD-1U-Nah"/>
-                <constraint firstItem="E72-yI-yjn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KDe-OR-kuL"/>
+                <constraint firstItem="E72-yI-yjn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="KDe-OR-kuL"/>
+                <constraint firstAttribute="centerX" secondItem="u2W-0M-fra" secondAttribute="centerX" id="MmO-Af-I5z"/>
+                <constraint firstItem="cOo-M2-Egj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="QqZ-Y7-ef7"/>
                 <constraint firstItem="E72-yI-yjn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TmC-1b-1fv"/>
+                <constraint firstItem="cOo-M2-Egj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WJp-WS-gCv"/>
+                <constraint firstItem="Daf-JQ-cpJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="d3X-My-9SK"/>
                 <constraint firstAttribute="bottom" secondItem="E72-yI-yjn" secondAttribute="bottom" id="mj2-I2-vyH"/>
+                <constraint firstAttribute="centerY" secondItem="u2W-0M-fra" secondAttribute="centerY" id="qmj-ap-RJM"/>
+                <constraint firstAttribute="trailing" secondItem="Daf-JQ-cpJ" secondAttribute="trailing" constant="50" id="std-ID-JYU"/>
+                <constraint firstAttribute="centerY" secondItem="Daf-JQ-cpJ" secondAttribute="centerY" id="zU2-40-RLE"/>
             </constraints>
+        </view>
+        <view contentMode="scaleToFill" id="1Ws-MP-e6v">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAh-6w-EIK">
+                    <rect key="frame" x="50" y="5" width="220" height="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="iTA-Go-AO6"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="0.223888051" green="0.37756873699999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="xAh-6w-EIK" firstAttribute="leading" secondItem="1Ws-MP-e6v" secondAttribute="leading" constant="50" id="9eM-ff-bhg"/>
+                <constraint firstAttribute="bottom" secondItem="xAh-6w-EIK" secondAttribute="bottom" constant="5" id="iGl-6P-LZ9"/>
+                <constraint firstAttribute="trailing" secondItem="xAh-6w-EIK" secondAttribute="trailing" constant="50" id="jim-Ri-Tu9"/>
+                <constraint firstItem="xAh-6w-EIK" firstAttribute="top" secondItem="1Ws-MP-e6v" secondAttribute="top" constant="5" id="yC9-7M-v2W"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
 </document>

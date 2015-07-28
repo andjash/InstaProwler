@@ -12,17 +12,24 @@
 #import "MediaFeedCell.h"
 #import "NotificationHandler.h"
 
+#import "UIColor+Additions.h"
 #import "UIView+Additions.h"
 #import "NSError+Additions.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
-@interface MediaFeedViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface MediaFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIView *tableHeaderContainer;
+@property (nonatomic, weak) IBOutlet UITextField *searchTextField;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) IBOutlet UIView *statusBarOverlay;
+@property (nonatomic, weak) IBOutlet UILabel *placeholderLabel;
 
 @property (nonatomic, weak) id<InstagramMediaItemsModel> mediaItemsModel;
 
 @property (nonatomic, strong) NotificationHandler *modelLoadingHandler;
+@property (nonatomic, strong) NotificationHandler *itemsChangedhandler;
 @property (nonatomic, strong) NSDateFormatter *creationDateFormatter;
 
 @end
@@ -38,6 +45,16 @@ objection_requires(@"mediaItemsModel")
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
     
+    self.searchTextField.layer.cornerRadius = self.searchTextField.frame.size.height / 2;
+    self.searchTextField.layer.borderWidth = 0.5;
+    self.searchTextField.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    self.tableHeaderContainer.backgroundColor =
+    self.statusBarOverlay.backgroundColor = [UIColor ip_applicationMainColor];
+    
+    self.tableView.tableHeaderView = self.tableHeaderContainer;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     self.creationDateFormatter = [[NSDateFormatter alloc] init];
     [self.creationDateFormatter setDateStyle:NSDateFormatterShortStyle];
     
@@ -49,17 +66,81 @@ objection_requires(@"mediaItemsModel")
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         [wself.mediaItemsModel loadNextPage];
     }];
-    self.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];
+    self.tableView.infiniteScrollingView.enabled = NO;
     
     self.modelLoadingHandler = [NotificationHandler handlerWithBlock:^(NSNotification *notification) {
         if (wself.mediaItemsModel.state != InstagramMediaItemsModelStateProgress) {
-            [wself.tableView reloadData];
-            [wself.tableView.infiniteScrollingView stopAnimating];
-            wself.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];
+            [wself setProgressEnabled:NO];
         } else {
-             [wself.tableView.infiniteScrollingView startAnimating];
+            [wself setProgressEnabled:YES];
         }
     } forNotification:kInstagramMediaItemsModelStateChangedNotification fromObject:nil];
+    self.itemsChangedhandler = [NotificationHandler handlerWithBlock:^(NSNotification *notification) {
+        [wself.tableView reloadData];
+        wself.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];
+    } forNotification:kInstagramMediaItemsModelChangedNotification fromObject:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+}
+
+#pragma mark - Private
+
+- (void)setProgressEnabled:(BOOL)enabled {
+    if (enabled) {
+        if ([[self.mediaItemsModel mediaItems] count] > 0) {
+            [self.tableView.infiniteScrollingView startAnimating];
+        } else {
+            [self.activityIndicator startAnimating];
+            [UIView animateWithDuration:0.15 animations:^{
+                self.placeholderLabel.alpha = 0;
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.15 animations:^{
+                    self.activityIndicator.alpha = 1;
+                }];
+            }];
+        }
+    } else {
+        [self.tableView.infiniteScrollingView stopAnimating];
+        [self.activityIndicator stopAnimating];
+        [UIView animateWithDuration:0.15 animations:^{
+            self.activityIndicator.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.activityIndicator stopAnimating];
+            if ([[self.mediaItemsModel mediaItems] count] == 0) {
+                if ([self.mediaItemsModel lastError] == nil) {
+                    self.placeholderLabel.text = @"Enter username to search and view his feed";
+                } else {
+                    NSError *error = [self.mediaItemsModel lastError];
+                    if (error.code == kInstagramMediaItemsModelNoSuchUser) {
+                        self.placeholderLabel.text = @"User not found";
+                    } else if ([error code] == 0) {
+                        self.placeholderLabel.text = @"User account is private";
+                    } else {
+                        self.placeholderLabel.text = @"Error occured";
+                    }
+                }
+                
+                [UIView animateWithDuration:0.3 animations:^{
+                    self.placeholderLabel.alpha = 1;
+                }];
+            }
+        }];
+    }
+}
+
+- (void)searchWithCurrentText {
+    [self.mediaItemsModel loadNextPageForSearchString:self.searchTextField.text];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.searchTextField resignFirstResponder];
+    [self searchWithCurrentText];
+    return YES;
 }
 
 #pragma mark - UITableViewDataSource
@@ -78,6 +159,12 @@ objection_requires(@"mediaItemsModel")
 }
 
 #pragma mark - UITableViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y < 0) {
+        scrollView.contentOffset = CGPointZero;
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [MediaFeedCell heightWithItem:[self.mediaItemsModel mediaItems][indexPath.row]];

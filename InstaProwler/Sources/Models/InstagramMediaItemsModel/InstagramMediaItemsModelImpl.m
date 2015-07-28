@@ -14,6 +14,7 @@
 #import "NSError+Additions.h"
 
 NSString * const kInstagramMediaItemsModelStateChangedNotification = @"kInstagramMediaItemsModelStateChangedNotification";
+NSString * const kInstagramMediaItemsModelChangedNotification = @"kInstagramMediaItemsModelChangedNotification";
 
 NSString * const kInstagramMediaItemsModelErrorDomain = @"kInstagramMediaItemsModelErrorDomain";
 
@@ -54,6 +55,7 @@ objection_requires(@"instagramService");
         self.nextMaxId = nil;
         self.currentUser = nil;
         self.mediaItems = @[];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelChangedNotification object:nil];
     }
     
     self.state = InstagramMediaItemsModelStateProgress;
@@ -71,6 +73,7 @@ objection_requires(@"instagramService");
                                                NSMutableArray *newItems = [self.mediaItems mutableCopy];
                                                [newItems addObjectsFromArray:items];
                                                self.mediaItems = newItems;
+                                               [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelChangedNotification object:nil];
                                                self.state = InstagramMediaItemsModelStateIdle;
         } errorBlock:^(NSError *error) {
             self.lastError = error;

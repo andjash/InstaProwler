@@ -13,6 +13,9 @@
 #import "Objection.h"
 #import "UAProgressView.h"
 
+#import "UIView+Additions.h"
+#import "UIColor+Additions.h"
+
 @interface MediaFeedCell ()
 
 @property (nonatomic, weak) IBOutlet UILabel *authorLabel;
@@ -47,7 +50,7 @@
     
     for (InstagramMediaItemComment *itemComment in comments) {
         NSString *authorString = [NSString stringWithFormat:@"%@ ", itemComment.author.username];
-        NSAttributedString *commentAuthorString = [[NSAttributedString alloc] initWithString:authorString attributes:    @{NSFontAttributeName : authorFont,                                                                                                                                     NSForegroundColorAttributeName : [UIColor blueColor]}];
+        NSAttributedString *commentAuthorString = [[NSAttributedString alloc] initWithString:authorString attributes:    @{NSFontAttributeName : authorFont,                                                                                                                                     NSForegroundColorAttributeName : [UIColor ip_applicationMainColor]}];
         
         NSAttributedString *commentString = [[NSAttributedString alloc] initWithString:itemComment.text attributes:
                                              @{NSFontAttributeName : commentFont,
@@ -58,6 +61,10 @@
         [attrString appendAttributedString:commentAuthorString];
         [attrString appendAttributedString:commentString];
         [attrString appendAttributedString:lineBreak];
+        
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineSpacing = 3;
+        [attrString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attrString.length)];
     }
     return attrString;
 }
@@ -74,6 +81,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.photoImageView ip_addTopBorderWithWidth:0.5 color:[UIColor lightGrayColor]];
+    [self.photoImageView ip_addBottomBorderWithWidth:0.5 color:[UIColor lightGrayColor]];
     self.progressView.borderWidth = 0;
 }
 
