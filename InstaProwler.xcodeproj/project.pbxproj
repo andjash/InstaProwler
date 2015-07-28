@@ -20,8 +20,9 @@
 		CC8CE5B71B674BF9008A8182 /* InstagramMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5B21B674BF9008A8182 /* InstagramMediaItem.m */; };
 		CC8CE5B81B674BF9008A8182 /* InstagramUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5B41B674BF9008A8182 /* InstagramUser.m */; };
 		CC8CE5C51B674D64008A8182 /* CoreDataInstagramCacheStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5C41B674D64008A8182 /* CoreDataInstagramCacheStorage.m */; };
-		CC8CE5CE1B674F83008A8182 /* CachedInstagramImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5CD1B674F83008A8182 /* CachedInstagramImage.m */; };
 		CC8CE5D11B67508E008A8182 /* InstagramCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5CF1B67508E008A8182 /* InstagramCache.xcdatamodeld */; };
+		CC8CE5D41B675D3B008A8182 /* CachedInstagramPost.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8CE5D31B675D3B008A8182 /* CachedInstagramPost.m */; };
+		CC8CE5DC1B67D4A0008A8182 /* MediaFeed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC8CE5DB1B67D4A0008A8182 /* MediaFeed.xcassets */; };
 		CC8E1C9C1B627E6D00F1F1F3 /* UIApplication+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */; };
 		CC8E1C9F1B627F4400F1F1F3 /* ServicesObjectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1C9E1B627F4400F1F1F3 /* ServicesObjectionModule.m */; };
 		CC8E1CAF1B63E65700F1F1F3 /* ModelsObjectionModule.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8E1CAE1B63E65700F1F1F3 /* ModelsObjectionModule.m */; };
@@ -70,9 +71,10 @@
 		CC8CE5C21B674CFB008A8182 /* InstagramCacheStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramCacheStorage.h; sourceTree = "<group>"; };
 		CC8CE5C31B674D64008A8182 /* CoreDataInstagramCacheStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataInstagramCacheStorage.h; sourceTree = "<group>"; };
 		CC8CE5C41B674D64008A8182 /* CoreDataInstagramCacheStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataInstagramCacheStorage.m; sourceTree = "<group>"; };
-		CC8CE5CC1B674F83008A8182 /* CachedInstagramImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedInstagramImage.h; sourceTree = "<group>"; };
-		CC8CE5CD1B674F83008A8182 /* CachedInstagramImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedInstagramImage.m; sourceTree = "<group>"; };
 		CC8CE5D01B67508E008A8182 /* InstagramCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstagramCache.xcdatamodel; sourceTree = "<group>"; };
+		CC8CE5D21B675D3B008A8182 /* CachedInstagramPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CachedInstagramPost.h; sourceTree = "<group>"; };
+		CC8CE5D31B675D3B008A8182 /* CachedInstagramPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CachedInstagramPost.m; sourceTree = "<group>"; };
+		CC8CE5DB1B67D4A0008A8182 /* MediaFeed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MediaFeed.xcassets; sourceTree = "<group>"; };
 		CC8E1C9A1B627E6D00F1F1F3 /* UIApplication+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+Additions.h"; sourceTree = "<group>"; };
 		CC8E1C9B1B627E6D00F1F1F3 /* UIApplication+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+Additions.m"; sourceTree = "<group>"; };
 		CC8E1C9D1B627F4400F1F1F3 /* ServicesObjectionModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesObjectionModule.h; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				CC55BC081B62759A00BE7186 /* Images.xcassets */,
+				CC8CE5DB1B67D4A0008A8182 /* MediaFeed.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -312,9 +315,9 @@
 			children = (
 				CC8CE5C31B674D64008A8182 /* CoreDataInstagramCacheStorage.h */,
 				CC8CE5C41B674D64008A8182 /* CoreDataInstagramCacheStorage.m */,
-				CC8CE5CC1B674F83008A8182 /* CachedInstagramImage.h */,
-				CC8CE5CD1B674F83008A8182 /* CachedInstagramImage.m */,
 				CC8CE5CF1B67508E008A8182 /* InstagramCache.xcdatamodeld */,
+				CC8CE5D21B675D3B008A8182 /* CachedInstagramPost.h */,
+				CC8CE5D31B675D3B008A8182 /* CachedInstagramPost.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */,
+				CC8CE5DC1B67D4A0008A8182 /* MediaFeed.xcassets in Resources */,
 				CC8E1CC31B667C0800F1F1F3 /* MediaFeedCell.xib in Resources */,
 				CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */,
 				CC8E1CBE1B667B4F00F1F1F3 /* MediaFeedViewController.xib in Resources */,
@@ -513,7 +517,6 @@
 				CC8CE5B71B674BF9008A8182 /* InstagramMediaItem.m in Sources */,
 				CC8CE5B51B674BF9008A8182 /* InstagramServiceImpl.m in Sources */,
 				CCE157991B673DCA00C8F703 /* UIColor+Additions.m in Sources */,
-				CC8CE5CE1B674F83008A8182 /* CachedInstagramImage.m in Sources */,
 				CC8E1CB31B63E6E500F1F1F3 /* InstagramMediaItemsModelImpl.m in Sources */,
 				CC8E1CBD1B667B4F00F1F1F3 /* MediaFeedViewController.m in Sources */,
 				CC8CE5D11B67508E008A8182 /* InstagramCache.xcdatamodeld in Sources */,
@@ -522,6 +525,7 @@
 				CC55BC211B627C0A00BE7186 /* NotificationHandler.m in Sources */,
 				CC55BC221B627C0A00BE7186 /* QueueServiceImpl.m in Sources */,
 				CC8E1CAF1B63E65700F1F1F3 /* ModelsObjectionModule.m in Sources */,
+				CC8CE5D41B675D3B008A8182 /* CachedInstagramPost.m in Sources */,
 				CC8E1CCC1B66941500F1F1F3 /* NSError+Additions.m in Sources */,
 				CC8CE5B81B674BF9008A8182 /* InstagramUser.m in Sources */,
 				CC8CE5B61B674BF9008A8182 /* InstagramCacheServiceImpl.m in Sources */,

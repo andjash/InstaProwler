@@ -118,6 +118,12 @@ objection_requires(@"httpService", @"queueService")
             
             for (NSDictionary *dict in itemsDicts) {
                 InstagramMediaItem *mediaItem = [InstagramMediaItem fromDictionary:dict];
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:0 error:0];
+                NSString *jsonString = [[NSString alloc] initWithBytes:[jsonData bytes]
+                                                                length:[jsonData length]
+                                                              encoding:NSUTF8StringEncoding];
+                
+                mediaItem.originalJson = jsonString;
                 if (mediaItem) {
                     [result addObject:mediaItem];
                 }

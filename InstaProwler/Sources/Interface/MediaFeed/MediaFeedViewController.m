@@ -11,6 +11,7 @@
 #import "Objection.h"
 #import "MediaFeedCell.h"
 #import "NotificationHandler.h"
+#import "Reachability.h"
 
 #import "UIColor+Additions.h"
 #import "UIView+Additions.h"
@@ -25,12 +26,14 @@
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, weak) IBOutlet UIView *statusBarOverlay;
 @property (nonatomic, weak) IBOutlet UILabel *placeholderLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *offlineImageView;
 
 @property (nonatomic, weak) id<InstagramMediaItemsModel> mediaItemsModel;
 
 @property (nonatomic, strong) NotificationHandler *modelLoadingHandler;
 @property (nonatomic, strong) NotificationHandler *itemsChangedhandler;
 @property (nonatomic, strong) NSDateFormatter *creationDateFormatter;
+@property (nonatomic, strong) Reachability *reachability;
 
 @end
 
@@ -44,6 +47,9 @@ objection_requires(@"mediaItemsModel")
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[JSObjection defaultInjector] injectDependencies:self];
+    
+    self.offlineImageView.image = [self.offlineImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.offlineImageView.tintColor = [UIColor whiteColor];
     
     self.searchTextField.layer.cornerRadius = self.searchTextField.frame.size.height / 2;
     self.searchTextField.layer.borderWidth = 0.5;
@@ -76,9 +82,32 @@ objection_requires(@"mediaItemsModel")
         }
     } forNotification:kInstagramMediaItemsModelStateChangedNotification fromObject:nil];
     self.itemsChangedhandler = [NotificationHandler handlerWithBlock:^(NSNotification *notification) {
-        [wself.tableView reloadData];
+       [wself.tableView reloadData];
         wself.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];
     } forNotification:kInstagramMediaItemsModelChangedNotification fromObject:nil];
+    self.searchTextField.tintColor = [UIColor whiteColor];
+    
+    
+    self.reachability = [Reachability reachabilityForInternetConnection];
+    if (![self.reachability isReachable]) {
+        self.offlineImageView.alpha = 1;
+    }
+    
+    self.reachability.reachableBlock = ^void(Reachability *reach) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.3 animations:^{
+                wself.offlineImageView.alpha = [wself.reachability isReachable] ? 0 : 1;
+            }];
+        });
+    };
+    self.reachability.unreachableBlock = ^void(Reachability *reach) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.3 animations:^{
+                wself.offlineImageView.alpha = [wself.reachability isReachable] ? 0 : 1;
+            }];
+        });
+    };
+    [self.reachability startNotifier];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

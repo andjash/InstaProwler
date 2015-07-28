@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class InstagramMediaItem;
+
 @protocol InstagramCacheService <NSObject>
 
 - (void)getImageFromCacheWithUrl:(NSString *)url
                  completionBlock:(void(^)(UIImage *image))completionBlock;
 - (void)storeImageToCache:(UIImage *)image withUrl:(NSString *)url;
+
+- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock;
+- (void)getPostsWithUserName:(NSString *)username withCompletionBlock:(void (^)(NSArray *))completionBlock;
 
 @end

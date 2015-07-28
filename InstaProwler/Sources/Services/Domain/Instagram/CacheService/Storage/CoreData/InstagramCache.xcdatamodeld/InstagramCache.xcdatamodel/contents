@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="CachedInstagramImage" syncable="YES">
-        <attribute name="dateSaved" optional="YES" attributeType="Date" syncable="YES"/>
+    <entity name="CachedInstagramPost" representedClassName="CachedInstagramPost" syncable="YES">
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="postId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postJson" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="savedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CachedInstagramImage" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="CachedInstagramPost" positionX="-54" positionY="18" width="128" height="148"/>
     </elements>
 </model>

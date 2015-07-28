@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSString *imageUrlString;
 @property (nonatomic, strong) NSArray *comments; // array of InstagramMediaItemComment
 @property (nonatomic, strong) NSDate *creationDate;
+@property (nonatomic, strong) NSString *originalJson;
 
 + (instancetype)fromDictionary:(NSDictionary *)dict;
 

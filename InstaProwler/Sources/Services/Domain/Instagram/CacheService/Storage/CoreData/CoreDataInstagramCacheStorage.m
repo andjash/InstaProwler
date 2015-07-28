@@ -8,7 +8,9 @@
 
 #import "CoreDataInstagramCacheStorage.h"
 #import "Objection.h"
-#import "CachedInstagramImage.h"
+#import "CachedInstagramPost.h"
+#import "InstagramMediaItem.h"
+#import "InstagramUser.h"
 
 @import CoreData;
 
@@ -79,22 +81,11 @@ objection_register(CoreDataInstagramCacheStorage)
 
 - (void)setImage:(UIImage *)image withUrl:(NSString *)url withCompletionBlock:(void (^)())completionBlock {
     dispatch_async(self.queue, ^{
-        [self getCachedImageWithUrl:url withCompletionBlock:^(CachedInstagramImage *cachedImage) {
-            CachedInstagramImage *result = nil;
-            if (cachedImage) {
-                cachedImage.imageData = UIImagePNGRepresentation(image);
-                cachedImage.dateSaved = [NSDate date];
-                result = cachedImage;
-            } else {
-                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramImage class])
-                                                                     inManagedObjectContext:self.context];
-                result = [[CachedInstagramImage alloc] initWithEntity:entityDescription
-                                                             insertIntoManagedObjectContext:self.context];
-                
-                result.imageData = UIImagePNGRepresentation(image);
-                result.imageUrl = url;
-                result.dateSaved = [NSDate date];
+        [self getCachedPostWithUrl:url withCompletionBlock:^(CachedInstagramPost *cachedPost) {
+            if (!cachedPost) {
+                return;
             }
+            cachedPost.imageData = UIImagePNGRepresentation(image);
             
             NSError *error = nil;
             [self.context save:&error];
@@ -113,8 +104,8 @@ objection_register(CoreDataInstagramCacheStorage)
 
 - (void)getImageWithUrl:(NSString *)url withCompletionBlock:(void (^)(UIImage *))completionBlock {
     dispatch_async(self.queue, ^{
-        [self getCachedImageWithUrl:url withCompletionBlock:^(CachedInstagramImage *cachedImage) {
-            UIImage *image = [UIImage imageWithData:cachedImage.imageData];
+        [self getCachedPostWithUrl:url withCompletionBlock:^(CachedInstagramPost *cachedPost) {
+            UIImage *image = [UIImage imageWithData:cachedPost.imageData];
             if (image) {
                 image = [UIImage imageWithCGImage:image.CGImage
                                             scale:[UIScreen mainScreen].scale
@@ -129,11 +120,82 @@ objection_register(CoreDataInstagramCacheStorage)
     });
 }
 
+- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock {
+    dispatch_async(self.queue, ^{
+        [self getCachedPostWithId:post.itemId withCompletionBlock:^(CachedInstagramPost *cachedPost) {
+            if (cachedPost) {
+                cachedPost.postDate = post.creationDate;
+                cachedPost.savedDate = [NSDate date];
+                if (![cachedPost.imageUrl isEqualToString:post.imageUrlString]) {
+                    cachedPost.imageData = nil;
+                    cachedPost.imageUrl = post.imageUrlString;
+                }
+                cachedPost.userName = post.author.username;
+                cachedPost.postJson = post.originalJson;
+            } else {
+                NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramPost class])
+                                                                     inManagedObjectContext:self.context];
+                CachedInstagramPost *result = [[CachedInstagramPost alloc] initWithEntity:entityDescription
+                                                           insertIntoManagedObjectContext:self.context];
+                
+                result.postId = post.itemId;
+                result.imageUrl = post.imageUrlString;
+                result.postJson = post.originalJson;
+                result.userName = post.author.username;
+                result.postDate = post.creationDate;
+                result.savedDate = [NSDate date];
+            }
+            
+            NSError *error = nil;
+            [self.context save:&error];
+            if (error) {
+                NSLog(@"Error while saving post %@", error);
+            }
+            [self.context reset];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completionBlock) {
+                    completionBlock();
+                }
+            });
+        }];
+    });
+}
+
+- (void)getPostsWithUserName:(NSString *)username withCompletionBlock:(void (^)(NSArray *))completionBlock {
+    dispatch_async(self.queue, ^{
+        [self getCachedPostsWithUserName:username withCompletionBlock:^(NSArray *posts) {
+            NSMutableArray *result = [NSMutableArray arrayWithCapacity:[posts count]];
+            for (CachedInstagramPost *cachedPost in posts) {
+                
+                if (!cachedPost.imageData) {
+                    continue;
+                }
+                
+                NSError *parsingError = nil;
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:[cachedPost.postJson dataUsingEncoding:NSUTF8StringEncoding]
+                                                                     options:NSJSONReadingMutableContainers
+                                                                       error:&parsingError];
+                if (parsingError) {
+                    continue;
+                }
+                
+                InstagramMediaItem *item = [InstagramMediaItem fromDictionary:dict];
+                [result addObject:item];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (completionBlock) {
+                    completionBlock(result);
+                }
+            });
+        }];
+    });
+}
+
 #pragma mark - Private
 
-- (void)getCachedImageWithUrl:(NSString *)url withCompletionBlock:(void (^)(CachedInstagramImage *))completionBlock {
+- (void)getCachedPostWithUrl:(NSString *)url withCompletionBlock:(void (^)(CachedInstagramPost *))completionBlock {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramImage class])
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramPost class])
                                               inManagedObjectContext:self.context];
     [fetchRequest setEntity:entity];
     
@@ -147,6 +209,44 @@ objection_register(CoreDataInstagramCacheStorage)
         completionBlock(nil);
     } else {
         completionBlock([fetchedObjects firstObject]);
+    }
+}
+
+- (void)getCachedPostWithId:(NSString *)postId withCompletionBlock:(void (^)(CachedInstagramPost *))completionBlock {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramPost class])
+                                              inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"postId == %@",
+                              postId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil || [fetchedObjects count] == 0) {
+        completionBlock(nil);
+    } else {
+        completionBlock([fetchedObjects firstObject]);
+    }
+}
+
+- (void)getCachedPostsWithUserName:(NSString *)username withCompletionBlock:(void (^)(NSArray *))completionBlock {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramPost class])
+                                              inManagedObjectContext:self.context];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userName == %@",
+                              username];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil || [fetchedObjects count] == 0) {
+        completionBlock(nil);
+    } else {
+        completionBlock(fetchedObjects);
     }
 }
 

@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaFeedViewController">
             <connections>
                 <outlet property="activityIndicator" destination="u2W-0M-fra" id="c4V-cn-Cc3"/>
+                <outlet property="offlineImageView" destination="OcC-nA-lnK" id="wob-LN-zj0"/>
                 <outlet property="placeholderLabel" destination="Daf-JQ-cpJ" id="Axo-co-7MP"/>
                 <outlet property="searchTextField" destination="xAh-6w-EIK" id="D5X-Ky-6VC"/>
                 <outlet property="statusBarOverlay" destination="cOo-M2-Egj" id="LpR-co-jPj"/>
@@ -76,15 +77,27 @@
                         <outlet property="delegate" destination="-1" id="iTA-Go-AO6"/>
                     </connections>
                 </textField>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MediaFeedOffline" translatesAutoresizingMaskIntoConstraints="NO" id="OcC-nA-lnK">
+                    <rect key="frame" x="12" y="8" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="mpB-k1-QV8"/>
+                        <constraint firstAttribute="width" constant="25" id="zCs-Vj-Lya"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.223888051" green="0.37756873699999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="xAh-6w-EIK" firstAttribute="leading" secondItem="1Ws-MP-e6v" secondAttribute="leading" constant="50" id="9eM-ff-bhg"/>
+                <constraint firstAttribute="centerY" secondItem="OcC-nA-lnK" secondAttribute="centerY" id="YOk-Vq-hfL"/>
                 <constraint firstAttribute="bottom" secondItem="xAh-6w-EIK" secondAttribute="bottom" constant="5" id="iGl-6P-LZ9"/>
                 <constraint firstAttribute="trailing" secondItem="xAh-6w-EIK" secondAttribute="trailing" constant="50" id="jim-Ri-Tu9"/>
+                <constraint firstItem="OcC-nA-lnK" firstAttribute="leading" secondItem="1Ws-MP-e6v" secondAttribute="leading" constant="12" id="qlm-dL-1cv"/>
                 <constraint firstItem="xAh-6w-EIK" firstAttribute="top" secondItem="1Ws-MP-e6v" secondAttribute="top" constant="5" id="yC9-7M-v2W"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="MediaFeedOffline" width="25" height="25"/>
+    </resources>
 </document>
