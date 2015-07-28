@@ -96,14 +96,16 @@ objection_requires(@"mediaItemsModel")
     self.reachability.reachableBlock = ^void(Reachability *reach) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.3 animations:^{
-                wself.offlineImageView.alpha = [wself.reachability isReachable] ? 0 : 1;
+                wself.offlineImageView.alpha = 0;
+                wself.tableView.infiniteScrollingView.enabled = [wself.mediaItemsModel hasMoreItems];
             }];
         });
     };
     self.reachability.unreachableBlock = ^void(Reachability *reach) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [UIView animateWithDuration:0.3 animations:^{
-                wself.offlineImageView.alpha = [wself.reachability isReachable] ? 0 : 1;
+                wself.offlineImageView.alpha = 1;
+                wself.tableView.infiniteScrollingView.enabled = NO;
             }];
         });
     };
