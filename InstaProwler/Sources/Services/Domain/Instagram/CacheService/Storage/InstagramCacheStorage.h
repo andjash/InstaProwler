@@ -18,4 +18,6 @@
 - (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock;
 - (void)getPostsWithUserName:(NSString *)username withCompletionBlock:(void (^)(NSArray *))completionBlock;
 
+- (void)removeOldPosts:(NSUInteger)postsCountToLeave;
+
 @end

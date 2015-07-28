@@ -191,6 +191,38 @@ objection_register(CoreDataInstagramCacheStorage)
     });
 }
 
+
+- (void)removeOldPosts:(NSUInteger)postsCountToLeave {
+    dispatch_async(self.queue, ^{
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:NSStringFromClass([CachedInstagramPost class])
+                                                  inManagedObjectContext:self.context];
+        [fetchRequest setEntity:entity];
+    
+        NSError *error;
+        NSArray *fetchedObjects = [self.context executeFetchRequest:fetchRequest error:&error];
+        
+        if ([fetchedObjects count] > postsCountToLeave) {
+            NSArray *sorted = [fetchedObjects sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                return [[obj2 savedDate] compare:[obj1 savedDate]];
+            }];
+            
+            
+            NSArray *toRemove = [sorted subarrayWithRange:NSMakeRange(postsCountToLeave, [sorted count] - postsCountToLeave)];
+            
+            for (CachedInstagramPost *post in toRemove) {
+                [self.context deleteObject:post];
+            }
+            
+            [self.context save:&error];
+            if (error) {
+                NSLog(@"Error while saving deleted operations %@", error);
+            }
+        }
+        
+    });
+}
+
 #pragma mark - Private
 
 - (void)getCachedPostWithUrl:(NSString *)url withCompletionBlock:(void (^)(CachedInstagramPost *))completionBlock {

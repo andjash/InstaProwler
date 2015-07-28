@@ -10,10 +10,14 @@
 #import "Objection.h"
 #import "InstagramCacheStorage.h"
 #import "InstagramMediaItem.h"
+static const NSUInteger kCachePostsCount = 100;
+static const NSUInteger kCachePostsCountTreshold = 20;
+static NSString * const kItemsCountDefaultsKey = @"kItemsCountDefaultsKey";
 
 @interface InstagramCacheServiceImpl ()
 
 @property (nonatomic, strong) id<InstagramCacheStorage> cacheStorage;
+@property (nonatomic, assign) NSInteger itemsCount;
 
 @end
 
@@ -21,7 +25,13 @@
 objection_register_singleton(InstagramCacheServiceImpl)
 objection_requires(@"cacheStorage")
 
-#pragma mark - Public 
+- (void)awakeFromObjection {
+    [super awakeFromNib];
+    
+    self.itemsCount = [[NSUserDefaults standardUserDefaults] integerForKey:kItemsCountDefaultsKey];
+}
+
+#pragma mark - Public
 
 - (void)getImageFromCacheWithUrl:(NSString *)url
                  completionBlock:(void(^)(UIImage *image))completionBlock {
@@ -34,6 +44,13 @@ objection_requires(@"cacheStorage")
 
 - (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock {
     [self.cacheStorage storePost:post withCompletionBlock:completionBlock];
+    self.itemsCount++;
+    if (self.itemsCount > kCachePostsCount + kCachePostsCountTreshold) {
+        [self.cacheStorage removeOldPosts:kCachePostsCount];
+        self.itemsCount = kCachePostsCount;
+    }
+    [[NSUserDefaults standardUserDefaults] setInteger:self.itemsCount forKey:kItemsCountDefaultsKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 - (void)getPostsWithUserName:(NSString *)username withCompletionBlock:(void (^)(NSArray *))completionBlock {
     [self.cacheStorage getPostsWithUserName:username withCompletionBlock:completionBlock];
