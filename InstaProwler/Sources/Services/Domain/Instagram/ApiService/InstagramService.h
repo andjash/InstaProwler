@@ -20,4 +20,8 @@
                     successBlock:(void(^)(NSArray *items/*InstagramMediaItem*/, NSString *nextMaxId))successBlock
                       errorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)commentsForMediaItemId:(NSString *)itemId
+                  successBlock:(void(^)(NSArray *items/*InstagramMediaItemComment*/))successBlock
+                    errorBlock:(void(^)(NSError *error))errorBlock;
+
 @end

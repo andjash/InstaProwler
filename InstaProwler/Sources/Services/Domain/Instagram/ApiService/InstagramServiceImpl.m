@@ -16,6 +16,7 @@
 static NSString * const kInstagramClientId = @"5475c7bd0ee849c6a53c262b4d1b54f6";
 static NSString * const kUserRecentMediaUrlFormat = @"https://api.instagram.com/v1/users/%@/media/recent/?client_id=%@";
 static NSString * const kSearchUserUrlFormat = @"https://api.instagram.com/v1/users/search?q=%@&client_id=%@";
+static NSString * const kMediaItemCommentsUrlFormat = @"https://api.instagram.com/v1/media/%@/comments?&client_id=%@";
 
 @interface InstagramServiceImpl ()
 
@@ -133,6 +134,51 @@ objection_requires(@"httpService", @"queueService")
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 successBlock(result, nextMaxId);
+            });
+        }];
+    }];
+    
+    [ep setErrorBlock:errorBlock];
+    [self.httpService performRequestWithExecutionParameters:ep requestParameters:rp];
+}
+
+- (void)commentsForMediaItemId:(NSString *)itemId
+                  successBlock:(void(^)(NSArray *items/*InstagramMediaItemComment*/))successBlock
+                    errorBlock:(void(^)(NSError *error))errorBlock {
+    RequestParameters *rp = [RequestParameters new];
+    
+    NSMutableString *urlString = [NSMutableString string];
+    [urlString appendFormat:kMediaItemCommentsUrlFormat, itemId, kInstagramClientId];
+    rp.url = [NSURL URLWithString:urlString];
+    rp.method = @"GET";
+    
+    ExecutionParameters *ep = [ExecutionParameters new];
+    
+    [ep setSuccessBlock:^(NSData *response) {
+        [self.queueService postBlockInBackgroundSerialQueue:^{
+            NSError *parsingError = nil;
+            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:response
+                                                                         options:NSJSONReadingMutableContainers
+                                                                           error:&parsingError];
+            if (parsingError) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    errorBlock(parsingError);
+                });
+                return;
+            }
+            
+            NSArray *itemsDicts = responseDict[@"data"];
+            NSMutableArray *result = [NSMutableArray arrayWithCapacity:[itemsDicts count]];
+            
+            for (NSDictionary *dict in itemsDicts) {
+                InstagramMediaItemComment *comment = [InstagramMediaItemComment fromDictionary:dict];
+                if (comment) {
+                    [result addObject:comment];
+                }
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                successBlock(result);
             });
         }];
     }];
