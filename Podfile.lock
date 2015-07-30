@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - JDFPeekaboo (0.2)
   - Objection (1.6)
   - Reachability (3.2)
   - SVPullToRefresh (0.4.1)
@@ -27,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - JDFPeekaboo
   - Objection (~> 1.5)
   - Reachability (~> 3.2)
   - SVPullToRefresh (from `https://github.com/samvermette/SVPullToRefresh.git`, commit
@@ -45,6 +47,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  JDFPeekaboo: 3447593f899d32c2013422f9bdc23d9d92c75da0
   Objection: 4833664098b86a8418f656bf5d9851a3fa6d7e41
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c

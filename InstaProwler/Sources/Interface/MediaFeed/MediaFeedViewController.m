@@ -12,6 +12,7 @@
 #import "MediaFeedCell.h"
 #import "NotificationHandler.h"
 #import "Reachability.h"
+#import "JDFPeekabooCoordinator.h"
 
 #import "UIColor+Additions.h"
 #import "UIView+Additions.h"
@@ -21,7 +22,8 @@
 @interface MediaFeedViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, weak) IBOutlet UIView *tableHeaderContainer;
+@property (nonatomic, weak) IBOutlet UIView *searchBarContainer;
+@property (nonatomic, weak) IBOutlet UIView *searchBarColorView;
 @property (nonatomic, weak) IBOutlet UITextField *searchTextField;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, weak) IBOutlet UIView *statusBarOverlay;
@@ -34,6 +36,11 @@
 @property (nonatomic, strong) NotificationHandler *itemsChangedhandler;
 @property (nonatomic, strong) NSDateFormatter *creationDateFormatter;
 @property (nonatomic, strong) Reachability *reachability;
+@property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordiantor;
+
+@property (nonatomic, assign) BOOL collapsingBar;
+@property (nonatomic, assign) BOOL expandingBar;
+@property (nonatomic, assign) CGFloat previousTableViewOffset;
 
 @end
 
@@ -55,10 +62,9 @@ objection_requires(@"mediaItemsModel")
     self.searchTextField.layer.borderWidth = 0.5;
     self.searchTextField.layer.borderColor = [UIColor whiteColor].CGColor;
     
-    self.tableHeaderContainer.backgroundColor =
+    self.searchBarColorView.backgroundColor =
     self.statusBarOverlay.backgroundColor = [UIColor ip_applicationMainColor];
     
-    self.tableView.tableHeaderView = self.tableHeaderContainer;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     self.creationDateFormatter = [[NSDateFormatter alloc] init];
@@ -110,6 +116,13 @@ objection_requires(@"mediaItemsModel")
         });
     };
     [self.reachability startNotifier];
+    
+    self.tableView.contentInset =
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
+    
+    self.scrollCoordiantor = [JDFPeekabooCoordinator new];
+    self.scrollCoordiantor.scrollView = self.tableView;
+    self.scrollCoordiantor.topView = self.searchBarContainer;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -195,12 +208,11 @@ objection_requires(@"mediaItemsModel")
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.y < 0) {
         scrollView.contentOffset = CGPointZero;
-    }
+    }   
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [MediaFeedCell heightWithItem:[self.mediaItemsModel mediaItems][indexPath.row]];
 }
-
 
 @end
