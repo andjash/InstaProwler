@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kInstagramServiceErrorDomain;
+
 @protocol InstagramService <NSObject>
 
 - (void)searchForUserWithString:(NSString *)searchString
@@ -19,5 +21,9 @@
                            maxId:(NSString *)maxId
                     successBlock:(void(^)(NSArray *items/*InstagramMediaItem*/, NSString *nextMaxId))successBlock
                       errorBlock:(void(^)(NSError *error))errorBlock;
+
+- (void)commentsForMediaItemId:(NSString *)itemId
+                  successBlock:(void(^)(NSArray *items/*InstagramMediaItemComment*/))successBlock
+                    errorBlock:(void(^)(NSError *error))errorBlock;
 
 @end

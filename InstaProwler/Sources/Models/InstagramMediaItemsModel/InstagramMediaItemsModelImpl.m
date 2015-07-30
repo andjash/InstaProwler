@@ -12,6 +12,7 @@
 #import "InstagramUser.h"
 #import "InstagramCacheService.h"
 #import "Reachability.h"
+#import "InstagramMediaItem.h"
 
 #import "NSError+Additions.h"
 
@@ -21,6 +22,7 @@ NSString * const kInstagramMediaItemsModelChangedNotification = @"kInstagramMedi
 NSString * const kInstagramMediaItemsModelErrorDomain = @"kInstagramMediaItemsModelErrorDomain";
 
 static const NSUInteger kLoadStepSize = 10;
+static const NSUInteger kMaxCommentsCount = 5;
 
 @interface InstagramMediaItemsModelImpl ()
 
@@ -87,6 +89,42 @@ objection_requires(@"instagramService", @"cacheService");
 
 #pragma mark - Properties
 
+- (void)setState:(InstagramMediaItemsModelState)state {
+    if (_state == state) {
+        return;
+    }
+    
+    _state = state;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelStateChangedNotification object:nil];
+}
+
+#pragma mark - Private
+
+- (void)loadCommentsForMediaItems:(NSArray *)items
+                  completionBlock:(void(^)())completion {
+    __block NSInteger itemsLoaded = 0;
+    
+    void (^proceedBlock)() = ^void() {
+        itemsLoaded++;
+        if (itemsLoaded == [items count]) {
+            completion();
+        }
+    };
+    
+    for (InstagramMediaItem *item in items) {
+        [self.instagramService commentsForMediaItemId:item.itemId successBlock:^(NSArray *items) {
+            if ([items count] > kMaxCommentsCount) {
+                item.comments = [items subarrayWithRange:NSMakeRange(0, kMaxCommentsCount)];
+            } else {
+                item.comments = items;
+            }
+            proceedBlock();
+        } errorBlock:^(NSError *error) {
+            proceedBlock();
+        }];
+    }
+}
+
 - (void)loadnextPageWithCurrentState {
     self.state = InstagramMediaItemsModelStateProgress;
     void (^loadRecentMediaBlock)() = ^void() {
@@ -94,20 +132,22 @@ objection_requires(@"instagramService", @"cacheService");
                                                   count:@(kLoadStepSize)
                                                   maxId:self.nextMaxId
                                            successBlock:^(NSArray *items, NSString *nextMaxId) {
-                                               if ([nextMaxId length] == 0) {
-                                                   self.hasMoreItems = NO;
-                                               }
-                                               
-                                               for (InstagramMediaItem *post in items) {
-                                                   [self.cacheService storePost:post withCompletionBlock:^{}];
-                                               }
-                                               
-                                               self.nextMaxId = nextMaxId;
-                                               NSMutableArray *newItems = [self.mediaItems mutableCopy];
-                                               [newItems addObjectsFromArray:items];
-                                               self.mediaItems = newItems;
-                                               [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelChangedNotification object:nil];
-                                               self.state = InstagramMediaItemsModelStateIdle;
+                                               [self loadCommentsForMediaItems:items completionBlock:^{
+                                                   if ([nextMaxId length] == 0) {
+                                                       self.hasMoreItems = NO;
+                                                   }
+                                                   
+                                                   for (InstagramMediaItem *post in items) {
+                                                       [self.cacheService storePost:post withCompletionBlock:^{}];
+                                                   }
+                                                   
+                                                   self.nextMaxId = nextMaxId;
+                                                   NSMutableArray *newItems = [self.mediaItems mutableCopy];
+                                                   [newItems addObjectsFromArray:items];
+                                                   self.mediaItems = newItems;
+                                                   [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelChangedNotification object:nil];
+                                                   self.state = InstagramMediaItemsModelStateIdle;
+                                               }];
                                            } errorBlock:^(NSError *error) {
                                                self.lastError = error;
                                                self.state = InstagramMediaItemsModelStateIdle;
@@ -138,16 +178,6 @@ objection_requires(@"instagramService", @"cacheService");
     } else {
         loadRecentMediaBlock();
     }
-
-}
-
-- (void)setState:(InstagramMediaItemsModelState)state {
-    if (_state == state) {
-        return;
-    }
-    
-    _state = state;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kInstagramMediaItemsModelStateChangedNotification object:nil];
 }
 
 @end
