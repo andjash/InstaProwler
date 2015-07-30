@@ -13,6 +13,9 @@
 //InstagramMediaItemsModel errors
 
 extern NSInteger const kInstagramMediaItemsModelNoSuchUser;
-extern NSInteger const kInstagramMediaItemsModelAccountIsPrivate;
+
+//InstagramService errors
+
+extern NSInteger const kInstagramServiceAccountIsPrivate;
 
 @end

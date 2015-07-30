@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kInstagramServiceErrorDomain;
+
 @protocol InstagramService <NSObject>
 
 - (void)searchForUserWithString:(NSString *)searchString

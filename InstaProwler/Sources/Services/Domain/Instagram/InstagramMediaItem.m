@@ -48,18 +48,7 @@
     NSDictionary *imagesDict = dict[@"images"];
     NSDictionary *stdImageDict = imagesDict[@"standard_resolution"];
     item.imageUrlString = stdImageDict[@"url"];
-    
-    NSDictionary *commentsDictionary = dict[@"comments"];
-    NSArray *commentsDictionaries = commentsDictionary[@"data"];
-    NSMutableArray *comments = [NSMutableArray array];
-    for (NSDictionary *commentDict in commentsDictionaries) {
-        InstagramMediaItemComment *comment = [InstagramMediaItemComment fromDictionary:commentDict];
-        if (comment) {
-            [comments addObject:comment];
-        }
-    }
-    item.comments = comments;
-    
+
     return item;
 }
 

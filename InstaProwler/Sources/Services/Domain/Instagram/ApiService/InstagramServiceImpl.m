@@ -12,6 +12,11 @@
 #import "InstagramUser.h"
 #import "QueueService.h"
 #import "InstagramMediaItem.h"
+#import "AFURLResponseSerialization.h"
+
+#import "NSError+Additions.h"
+
+NSString * const kInstagramServiceErrorDomain = @"kInstagramServiceErrorDomain";
 
 static NSString * const kInstagramClientId = @"5475c7bd0ee849c6a53c262b4d1b54f6";
 static NSString * const kUserRecentMediaUrlFormat = @"https://api.instagram.com/v1/users/%@/media/recent/?client_id=%@";
@@ -138,7 +143,30 @@ objection_requires(@"httpService", @"queueService")
         }];
     }];
     
-    [ep setErrorBlock:errorBlock];
+    [ep setErrorBlock:^(NSError *error) {
+        NSData *descriptionData = [error userInfo][AFNetworkingOperationFailingURLResponseDataErrorKey];
+        
+        NSError *parsingError = nil;
+        NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:descriptionData
+                                                                     options:NSJSONReadingMutableContainers
+                                                                       error:nil];
+        if (parsingError) {
+            errorBlock(error);
+            return;
+        }
+        
+        NSDictionary *meta = responseDict[@"meta"];
+        NSString *errorType = meta[@"error_type"];
+        
+        if ([errorType isEqualToString:@"APINotAllowedError"]) {
+            NSError *error = [NSError errorWithDomain:kInstagramClientId
+                                                 code:kInstagramServiceAccountIsPrivate
+                                             userInfo:nil];
+            errorBlock(error);
+            return;
+        }
+        errorBlock(error);
+    }];
     [self.httpService performRequestWithExecutionParameters:ep requestParameters:rp];
 }
 

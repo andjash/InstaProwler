@@ -10,7 +10,8 @@
 
 @implementation NSError (Additions)
 
-NSInteger const kInstagramMediaItemsModelAccountIsPrivate = 102;
 NSInteger const kInstagramMediaItemsModelNoSuchUser = 103;
+
+NSInteger const kInstagramServiceAccountIsPrivate = 102;
 
 @end

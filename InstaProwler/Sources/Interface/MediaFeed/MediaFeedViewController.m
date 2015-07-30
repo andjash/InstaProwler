@@ -148,7 +148,7 @@ objection_requires(@"mediaItemsModel")
                     NSError *error = [self.mediaItemsModel lastError];
                     if (error.code == kInstagramMediaItemsModelNoSuchUser) {
                         self.placeholderLabel.text = @"User not found";
-                    } else if ([error code] == 0) {
+                    } else if (error.code == kInstagramServiceAccountIsPrivate) {
                         self.placeholderLabel.text = @"User account is private";
                     } else {
                         self.placeholderLabel.text = @"Error occured";
