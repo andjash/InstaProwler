@@ -79,7 +79,7 @@ objection_register(CoreDataInstagramCacheStorage)
 
 #pragma mark - Public
 
-- (void)setImage:(UIImage *)image withUrl:(NSString *)url withCompletionBlock:(void (^)())completionBlock {
+- (void)setImage:(UIImage *)image withUrl:(NSString *)url withCompletionBlock:(void (^)(void))completionBlock {
     dispatch_async(self.queue, ^{
         [self getCachedPostWithUrl:url withCompletionBlock:^(CachedInstagramPost *cachedPost) {
             if (!cachedPost) {
@@ -120,7 +120,7 @@ objection_register(CoreDataInstagramCacheStorage)
     });
 }
 
-- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock {
+- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)(void))completionBlock {
     dispatch_async(self.queue, ^{
         [self getCachedPostWithId:post.itemId withCompletionBlock:^(CachedInstagramPost *cachedPost) {
             if (cachedPost) {

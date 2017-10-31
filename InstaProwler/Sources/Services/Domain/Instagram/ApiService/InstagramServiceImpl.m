@@ -18,7 +18,7 @@
 
 NSString * const kInstagramServiceErrorDomain = @"kInstagramServiceErrorDomain";
 
-static NSString * const kInstagramClientId = @"5475c7bd0ee849c6a53c262b4d1b54f6";
+static NSString * const kInstagramClientId = @"9cd84935834c44cea31f7881d0f3d280";
 static NSString * const kUserRecentMediaUrlFormat = @"https://api.instagram.com/v1/users/%@/media/recent/?client_id=%@";
 static NSString * const kSearchUserUrlFormat = @"https://api.instagram.com/v1/users/search?q=%@&client_id=%@";
 static NSString * const kMediaItemCommentsUrlFormat = @"https://api.instagram.com/v1/media/%@/comments?&client_id=%@";

@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19EFBD8F145F036C4DCADB55 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B434DE757B10B781F73484 /* libPods.a */; };
-		CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */; };
+		BE941C7241AC00700938B1A3 /* libPods-InstaProwler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 629F4721D0D99B0FFED760DB /* libPods-InstaProwler.a */; };
 		CC55BC051B62754F00BE7186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC041B62754F00BE7186 /* AppDelegate.m */; };
 		CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC55BC081B62759A00BE7186 /* Images.xcassets */; };
 		CC55BC0E1B6275C200BE7186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC55BC0C1B6275C200BE7186 /* main.m */; };
@@ -40,11 +39,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		419FFF3CB4A045994EBF5D99 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		41B434DE757B10B781F73484 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA19EC0AB082CCFCA7D7A536 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		1E98F6030A4134FD6EF8C34E /* Pods-InstaProwler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaProwler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstaProwler/Pods-InstaProwler.debug.xcconfig"; sourceTree = "<group>"; };
+		629F4721D0D99B0FFED760DB /* libPods-InstaProwler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstaProwler.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38FF465EE46F5C133F853C3 /* Pods-InstaProwler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaProwler.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstaProwler/Pods-InstaProwler.release.xcconfig"; sourceTree = "<group>"; };
 		CC55BBD31B62734E00BE7186 /* InstaProwler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaProwler.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC55BBE61B62734E00BE7186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CC55BC031B62754F00BE7186 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CC55BC041B62754F00BE7186 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CC55BC081B62759A00BE7186 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -110,17 +108,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19EFBD8F145F036C4DCADB55 /* libPods.a in Frameworks */,
+				BE941C7241AC00700938B1A3 /* libPods-InstaProwler.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		999CFA6CF94B92477952A993 /* Frameworks */ = {
+		1079E79B3D72B5127BBCA1A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				41B434DE757B10B781F73484 /* libPods.a */,
+				629F4721D0D99B0FFED760DB /* libPods-InstaProwler.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,8 +128,8 @@
 			children = (
 				CC55BBD51B62734E00BE7186 /* InstaProwler */,
 				CC55BBD41B62734E00BE7186 /* Products */,
-				CD61A8C08950774727A0DA99 /* Pods */,
-				999CFA6CF94B92477952A993 /* Frameworks */,
+				DF908BC5E8F8ACD6277353E6 /* Pods */,
+				1079E79B3D72B5127BBCA1A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,17 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				CC55BC071B62759A00BE7186 /* Assets */,
-				CC55BC061B62757500BE7186 /* Interface */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		CC55BC061B62757500BE7186 /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */,
-			);
-			path = Interface;
 			sourceTree = "<group>";
 		};
 		CC55BC071B62759A00BE7186 /* Assets */ = {
@@ -393,11 +382,11 @@
 			path = ImageDownloadModel;
 			sourceTree = "<group>";
 		};
-		CD61A8C08950774727A0DA99 /* Pods */ = {
+		DF908BC5E8F8ACD6277353E6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				419FFF3CB4A045994EBF5D99 /* Pods.debug.xcconfig */,
-				BA19EC0AB082CCFCA7D7A536 /* Pods.release.xcconfig */,
+				1E98F6030A4134FD6EF8C34E /* Pods-InstaProwler.debug.xcconfig */,
+				B38FF465EE46F5C133F853C3 /* Pods-InstaProwler.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -409,11 +398,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC55BBF61B62734E00BE7186 /* Build configuration list for PBXNativeTarget "InstaProwler" */;
 			buildPhases = (
-				F0BF45556B286F1C2F677798 /* Check Pods Manifest.lock */,
+				7E9072192973FCA40843C804 /* [CP] Check Pods Manifest.lock */,
 				CC55BBCF1B62734E00BE7186 /* Sources */,
 				CC55BBD01B62734E00BE7186 /* Frameworks */,
 				CC55BBD11B62734E00BE7186 /* Resources */,
-				440F2BCF828108201F3AD25D /* Copy Pods Resources */,
+				78D28072B0A0AEF48431BFEF /* [CP] Embed Pods Frameworks */,
+				22579633685CED50400AE4E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -430,7 +420,7 @@
 		CC55BBCB1B62734E00BE7186 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Andrey Yashnev";
 				TargetAttributes = {
 					CC55BBD21B62734E00BE7186 = {
@@ -462,7 +452,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC55BBE71B62734E00BE7186 /* LaunchScreen.xib in Resources */,
 				CC8CE5DC1B67D4A0008A8182 /* MediaFeed.xcassets in Resources */,
 				CC8E1CC31B667C0800F1F1F3 /* MediaFeedCell.xib in Resources */,
 				CC55BC091B62759A00BE7186 /* Images.xcassets in Resources */,
@@ -473,34 +462,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		440F2BCF828108201F3AD25D /* Copy Pods Resources */ = {
+		22579633685CED50400AE4E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaProwler/Pods-InstaProwler-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F0BF45556B286F1C2F677798 /* Check Pods Manifest.lock */ = {
+		78D28072B0A0AEF48431BFEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstaProwler/Pods-InstaProwler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E9072192973FCA40843C804 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstaProwler-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -539,18 +546,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		CC55BBE51B62734E00BE7186 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CC55BBE61B62734E00BE7186 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		CC55BBF41B62734E00BE7186 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -560,19 +555,28 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -604,13 +608,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -636,13 +648,14 @@
 		};
 		CC55BBF71B62734E00BE7186 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 419FFF3CB4A045994EBF5D99 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1E98F6030A4134FD6EF8C34E /* Pods-InstaProwler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "InstaProwler/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.softdds.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -650,13 +663,14 @@
 		};
 		CC55BBF81B62734E00BE7186 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA19EC0AB082CCFCA7D7A536 /* Pods.release.xcconfig */;
+			baseConfigurationReference = B38FF465EE46F5C133F853C3 /* Pods-InstaProwler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "InstaProwler/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.softdds.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

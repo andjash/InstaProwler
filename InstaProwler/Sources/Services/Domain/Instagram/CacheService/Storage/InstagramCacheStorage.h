@@ -12,10 +12,10 @@
 
 @protocol InstagramCacheStorage <NSObject>
 
-- (void)setImage:(UIImage *)image withUrl:(NSString *)url withCompletionBlock:(void (^)())completionBlock;
+- (void)setImage:(UIImage *)image withUrl:(NSString *)url withCompletionBlock:(void (^)(void))completionBlock;
 - (void)getImageWithUrl:(NSString *)url withCompletionBlock:(void (^)(UIImage *))completionBlock;
 
-- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock;
+- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)(void))completionBlock;
 - (void)getPostsWithUserName:(NSString *)username withCompletionBlock:(void (^)(NSArray *))completionBlock;
 
 - (void)removeOldPosts:(NSUInteger)postsCountToLeave;

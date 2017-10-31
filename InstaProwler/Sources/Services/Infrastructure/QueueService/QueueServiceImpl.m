@@ -1,11 +1,3 @@
-//
-//  QueueServiceImpl.m
-//  galery
-//
-//  Created by Andrey Yashnev on 12/06/15.
-//  Copyright (c) 2015 Alexandr Corporation. All rights reserved.
-//
-
 #import "QueueServiceImpl.h"
 #import "Objection.h"
 
@@ -35,7 +27,7 @@ objection_register_singleton(QueueServiceImpl)
 
 #pragma mark - Public
 
-- (void)postBlockInBackgroundSerialQueue:(void (^)())block {
+- (void)postBlockInBackgroundSerialQueue:(void (^)(void))block {
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
     [self.serialQueue addOperation:operation];
 }
@@ -45,7 +37,7 @@ objection_register_singleton(QueueServiceImpl)
     return [self addOperationToMapping:operation];
 }
 
-- (NSString *)postBlockInBackgroundQueue:(void (^)())block {
+- (NSString *)postBlockInBackgroundQueue:(void (^)(void))block {
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:block];
     return [self postOperationInBackgroundQueue:operation];
 }

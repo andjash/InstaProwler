@@ -42,7 +42,7 @@ objection_requires(@"cacheStorage")
     [self.cacheStorage setImage:image withUrl:url withCompletionBlock:nil];
 }
 
-- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)())completionBlock {
+- (void)storePost:(InstagramMediaItem *)post withCompletionBlock:(void (^)(void))completionBlock {
     [self.cacheStorage storePost:post withCompletionBlock:completionBlock];
     self.itemsCount++;
     if (self.itemsCount > kCachePostsCount + kCachePostsCountTreshold) {

@@ -101,10 +101,10 @@ objection_requires(@"instagramService", @"cacheService");
 #pragma mark - Private
 
 - (void)loadCommentsForMediaItems:(NSArray *)items
-                  completionBlock:(void(^)())completion {
+                  completionBlock:(void(^)(void))completion {
     __block NSInteger itemsLoaded = 0;
     
-    void (^proceedBlock)() = ^void() {
+    void (^proceedBlock)(void) = ^void() {
         itemsLoaded++;
         if (itemsLoaded == [items count]) {
             completion();
@@ -127,7 +127,7 @@ objection_requires(@"instagramService", @"cacheService");
 
 - (void)loadnextPageWithCurrentState {
     self.state = InstagramMediaItemsModelStateProgress;
-    void (^loadRecentMediaBlock)() = ^void() {
+    void (^loadRecentMediaBlock)(void) = ^void() {
         [self.instagramService recentMediaForUserWithId:self.currentUser.userId
                                                   count:@(kLoadStepSize)
                                                   maxId:self.nextMaxId

@@ -1,11 +1,3 @@
-//
-//  NotificationHandler.h
-//  galery
-//
-//  Created by Andrey Yashnev on 09/06/15.
-//  Copyright (c) 2015 Alexandr Corporation. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 @interface NotificationHandler : NSObject
